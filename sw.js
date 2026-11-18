@@ -1,8 +1,8 @@
 /* 好心茂名 · 山海荔乡 —— 离线缓存 */
-var CACHE = 'maoming-v1';
+var CACHE = 'maoming-v2';
 var CORE = [
   './', './index.html', './style.css', './app.js', './manifest.webmanifest',
-  './assets/icons/icon-192.png', './assets/motion/poster.jpg'
+  './assets/icons/icon-192.png', './assets/icons/apple-touch-icon.png', './assets/motion/poster.jpg'
 ];
 
 self.addEventListener('install', function (e) {
@@ -26,6 +26,21 @@ self.addEventListener('fetch', function (e) {
   try { url = new URL(req.url); } catch (err) { return; }
   if (url.origin !== location.origin) return;
 
+  // 页面导航走网络优先：部署后刷新就能拿到新版，断网时回落到缓存
+  if (req.mode === 'navigate') {
+    e.respondWith(
+      fetch(req).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put('./index.html', copy); });
+        return res;
+      }).catch(function () {
+        return caches.match('./index.html').then(function (hit) { return hit || caches.match('./'); });
+      })
+    );
+    return;
+  }
+
+  // 静态资源：先给缓存，同时后台更新
   e.respondWith(
     caches.match(req).then(function (hit) {
       var net = fetch(req).then(function (res) {
