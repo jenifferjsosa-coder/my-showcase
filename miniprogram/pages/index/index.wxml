@@ -1,0 +1,2 @@
+<!-- 用 web-view 承载已经做好的网页版；改 src 时同步改 index.js 里的 url -->
+<web-view src="{{url}}"></web-view>

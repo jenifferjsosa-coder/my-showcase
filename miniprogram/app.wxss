@@ -1,0 +1,5 @@
+/* 全局样式：页面本身全部由 web-view 承载，这里只兜底 */
+page {
+  background: #fbf6ee;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}

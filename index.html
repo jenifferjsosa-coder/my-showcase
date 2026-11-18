@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#c0304a">
+<title>好心茂名 · 山海荔乡</title>
+<meta name="description" content="广东茂名城市宣传小程序：五棵树一条鱼一桌菜、中国第一滩与放鸡岛、冼夫人好心文化、年例与非遗、荔枝与化橘红。">
+<meta name="keywords" content="茂名,荔枝,化橘红,沉香,罗非鱼,中国第一滩,放鸡岛,冼夫人,年例,高凉菜">
+<meta property="og:title" content="好心茂名 · 山海荔乡">
+<meta property="og:description" content="世界每五颗荔枝，就有一颗来自茂名。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c0304a'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23fff' font-family='serif'%3E茂%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="好心茂名">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 搜索层 -->
+  <div id="search" data-open="false" aria-hidden="true">
+    <div class="search-top">
+      <input id="searchInput" class="search-input" type="search" placeholder="搜荔枝、放鸡岛、年例、捞粉…" autocomplete="off">
+      <button class="search-cancel" id="searchCancel">取消</button>
+    </div>
+    <div class="search-body" id="searchBody"></div>
+  </div>
+
+  <!-- 视图 -->
+  <main id="view" role="main"></main>
+
+  <!-- 详情面板 -->
+  <div id="sheet" data-open="false" aria-hidden="true">
+    <div class="sheet-mask" data-act="closeSheet"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="详情">
+      <div class="sheet-scroll" id="sheetScroll"></div>
+    </div>
+  </div>
+
+  <!-- 底部导航 -->
+  <nav class="tabs" role="tablist" aria-label="主导航" id="tabs"></nav>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

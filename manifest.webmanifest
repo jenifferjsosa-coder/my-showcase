@@ -1,0 +1,22 @@
+{
+  "name": "好心茂名 · 山海荔乡",
+  "short_name": "好心茂名",
+  "description": "广东茂名城市宣传：五棵树一条鱼一桌菜、中国第一滩与放鸡岛、冼夫人好心文化、年例与非遗。",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf6ee",
+  "theme_color": "#c0304a",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "逛好物", "url": "./index.html#goods" },
+    { "name": "去看海", "url": "./index.html#spots" },
+    { "name": "人文茂名", "url": "./index.html#culture" }
+  ]
+}

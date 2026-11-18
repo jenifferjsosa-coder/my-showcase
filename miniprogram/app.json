@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "好心茂名",
+    "navigationBarBackgroundColor": "#c0304a",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fbf6ee",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
