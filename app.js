@@ -450,6 +450,117 @@
 
   function statBadge(v, u) { return '<span class="meta-pill">' + v + (u ? ' ' + u : '') + '</span>'; }
 
+  /* ---------------- 品种 / 种类 ---------------- */
+  /* n 名称 · t 时令或等级 · d 一句话 */
+  var KINDS = {
+    lychee: [
+      { n: '科技一号', t: '农历二月 · 3月', d: '特早熟，比三月红还早一步，抢的就是“第一口鲜”。' },
+      { n: '三月红', t: '4月下旬', d: '最早一批，皮红带青，酸甜爽口，核略大。' },
+      { n: '白糖罂', t: '5月下旬—6月上旬', d: '茂名招牌，皮薄、蜜甜、核小；高州根子镇最出名。' },
+      { n: '妃子笑', t: '5月底—6月中', d: '青红皮就能吃，甜里带一点酸，最经得起长途。' },
+      { n: '白蜡', t: '6月上旬', d: '果大肉厚、清甜多汁，价格最亲民的一档。' },
+      { n: '黑叶', t: '6月中', d: '产量最大，肉厚汁多，晒荔枝干、做罐头的常用种。' },
+      { n: '桂味', t: '6月下旬—7月初', d: '果皮带桂花香，核小肉脆，老饕点名的品种。' },
+      { n: '糯米糍', t: '6月底—7月上', d: '肉厚软糯、甜度高，鲜食第一梯队。' },
+      { n: '鉴江红糯', t: '7月初', d: '鉴江流域本地种，果大色艳，鲜食制干都行。' },
+      { n: '贵妃红', t: '6月', d: '果大色红、卖相好，早中熟里的“颜值担当”。' },
+      { n: '井岗红糯', t: '7月', d: '中晚熟，核小耐贮运，往北走的货架期长。' },
+      { n: '马贵荔', t: '中秋前后 · 9月', d: '晚熟品种，高州马贵镇；别的荔枝收摊了它才来。' }
+    ],
+    juhong: [
+      { n: '正毛橘红', t: '绒毛密而白', d: '品质最好的一档，绒毛越密越值钱，《中国药典》所载即此。' },
+      { n: '副毛橘红', t: '绒毛较少', d: '产量大，日常入药、煲汤、泡水多用这一档。' },
+      { n: '光青橘红', t: '基本无毛', d: '果皮光洁，多拿去加工成片、颗粒、口服液。' },
+      { n: '橘红胎（乳橘）', t: '直径3—5厘米幼果', d: '幼果干燥，香气最冲，价格也最高。' }
+    ],
+    longan: [
+      { n: '储良', t: '7月中—8月上', d: '原产高州储良村，果大肉厚、离核、清甜，茂名龙眼招牌。' },
+      { n: '石硖', t: '7月上—8月', d: '早熟，肉脆清甜、核小，鲜食最讨喜。' },
+      { n: '大乌圆', t: '8月中', d: '果最大、肉厚汁多，鲜食与焙干两用。' },
+      { n: '双孖木', t: '8月', d: '广东本地选育，果中大、味浓，常做桂圆肉。' }
+    ],
+    sanjhua: [
+      { n: '早熟三华李', t: '5月中', d: '果偏小、酸脆，蘸辣椒盐最地道。' },
+      { n: '大蜜李', t: '6月', d: '信宜钱排主栽，果大、甜脆、核小，李子界的“甜口”。' }
+    ],
+    banana: [
+      { n: '巴西蕉', t: '全年 · 主产3—6月', d: '茂名香蕉主力，果指长、甜度高。' },
+      { n: '威廉斯蕉', t: '全年', d: '香气浓，超市里最常见的那一串。' },
+      { n: '粉蕉（芭蕉）', t: '全年', d: '短小皮薄，口感绵密带一点微酸。' },
+      { n: '皇帝蕉', t: '全年', d: '指头大小，甜度高，小孩最爱。' }
+    ],
+    tilapia: [
+      { n: '吉富罗非鱼', t: '全年', d: '茂名主养品系，长得快、肉厚刺少。' },
+      { n: '奥尼罗非鱼', t: '全年', d: '杂交种，耐寒抗病，适合大水面养殖。' },
+      { n: '尼罗罗非鱼', t: '全年', d: '体型大、出肉率高，加工厂喜欢。' },
+      { n: '红罗非鱼', t: '全年', d: '体色红亮、卖相好，多走活鲜市场。' }
+    ],
+    chenxiang: [
+      { n: '奇楠', t: '沉香里的顶配', d: '油脂最足、香气最透；电白观珠沙垌的奇楠育苗全国最集中。' },
+      { n: '白木香（土沉香）', t: '茂名主栽树种', d: '结香后可入药、制香，是整条产业链的底子。' },
+      { n: '板头 · 勾丝', t: '加工边角料', d: '熏香、泡酒、做香囊，一点不浪费。' }
+    ],
+    tangshui: [
+      { n: '番薯糖水', t: '老姜 + 片糖', d: '最家常的一碗，甜里带姜辣，暖胃。' },
+      { n: '香芋椰汁西米', t: '芋头粉糯', d: '化州糖水铺的招牌之一，椰香压得住甜。' },
+      { n: '海带绿豆沙', t: '要熬到起沙', d: '夏天消暑的第一选择，海带解腻。' },
+      { n: '清补凉', t: '薏米 · 莲子 · 百合', d: '甜汤版的“降火”，料多到像一碗粥。' },
+      { n: '红豆沙', t: '绵密不齁', d: '冬天热着喝，夏天加冰一样卖得动。' },
+      { n: '芝麻糊', t: '现磨黑芝麻', d: '香得糊嘴，配一根油条是宵夜标配。' },
+      { n: '木瓜炖雪耳', t: '木瓜 + 银耳', d: '清甜润口，女生点单率很高。' },
+      { n: '腐竹白果薏米', t: '广式老配方', d: '腐竹化在汤里，喝的是豆香。' },
+      { n: '芋圆西米露', t: '手搓芋圆', d: '年轻人最常点的一碗，嚼头足。' },
+      { n: '杨枝甘露', t: '芒果 + 西柚', d: '港式改良款，糖水铺里也有它。' }
+    ],
+    haixian: [
+      { n: '海蜇', t: '4—6月', d: '博贺是全国最大的海蜇集散地之一，凉拌最爽。' },
+      { n: '南风螺', t: '春夏', d: '全国最大产地之一，白灼蘸酱油就够了。' },
+      { n: '沙虫', t: '全年', d: '电白滩涂货，煮粥、炒韭黄都鲜。' },
+      { n: '对虾', t: '全年', d: '白灼或盐焗，虾头留着煲粥。' },
+      { n: '膏蟹（青蟹）', t: '秋后最肥', d: '蒸饭、姜葱炒，掀开壳全是膏。' },
+      { n: '生蚝', t: '11月—次年3月', d: '炭烧、蒜蓉蒸，冬天最肥。' },
+      { n: '马鲛鱼', t: '冬春', d: '切片煎或打鱼丸，肉质紧实。' },
+      { n: '金鲳鱼', t: '全年', d: '深海网箱养出来的，清蒸最鲜。' }
+    ],
+    he: [
+      { n: '薯包籺', t: '番薯粉做皮', d: '包肉馅蒸熟，软糯带韧，蘸酱油吃。' },
+      { n: '寿桃籺', t: '米粉皮 + 豆沙/花生', d: '捏成寿桃形，年例、做生日必备。' },
+      { n: '灰水籺（碱水粽）', t: '草木灰水泡糯米', d: '金黄透亮，蘸蜂蜜或白糖。' },
+      { n: '煮籺', t: '下汤煮', d: '米皮包馅下汤，一碗就能当一顿饭。' },
+      { n: '艾籺', t: '清明前后', d: '加了艾草，清香里带一点苦。' },
+      { n: '白籺', t: '最素的一种', d: '只蘸蒜蓉酱油，本地人的日常早餐。' }
+    ],
+    niuzha: [
+      { n: '牛肚', t: '爽脆', d: '清汤里烫到刚好，咬下去“咔嚓”一声。' },
+      { n: '牛肠', t: '油香', d: '洗得干净才不腥，越嚼越香。' },
+      { n: '牛肺', t: '吸汤', d: '孔隙多，一泡就把汤吸满。' },
+      { n: '牛蒡（牛膀）', t: '粉糯', d: '口感像芋头，是化州牛杂里的隐藏款。' },
+      { n: '牛筋', t: '胶质', d: '要炖够时间，糯而不烂。' },
+      { n: '牛百叶', t: '一烫就熟', d: '剪刀现剪，烫三下就上桌。' }
+    ],
+    gaoliang: [
+      { n: '白切鸡', t: '宴席头道', d: '浸煮后过冷河，皮爽肉滑，蘸沙姜酱油。' },
+      { n: '化州香油鸡', t: '花生油 + 二十多种香料', d: '油是灵魂，一勺淋下去香半条街。' },
+      { n: '水东鸭粥 · 白切鸭', t: '早餐到宵夜', d: '鸭汤加党参北芪煲粥，鸭肉白切蘸蒜蓉。' },
+      { n: '化州牛杂', t: '清汤 · 剪刀现剪', d: '辣与不辣两罐酱，自己加。' },
+      { n: '簸箕炊', t: '竹簸箕蒸三层米浆', d: '切菱形，淋香油、撒芝麻蒜蓉。' },
+      { n: '捞粉', t: '早餐标配', d: '韭菜油 + 酱油 + 生蒜米，一拌就香。' },
+      { n: '沙煲粉', t: '砂锅现煮', d: '汤滚着上桌，配一份牛腩。' },
+      { n: '笪桥黄瓜干', t: '“黄金瓜”', d: '扁薄、甘甜，配香菇猪肉蒸肉饼最下饭。' }
+    ]
+  };
+
+  var ATLAS = [
+    { id: 'lychee', name: '荔枝', unit: '个品种', kicker: 'LYCHEE', sub: '从农历二月的科技一号，到中秋的马贵荔，茂名的荔枝季能拉满半年。', kind: 'lychee' },
+    { id: 'tangshui', name: '化州糖水', unit: '碗', kicker: 'SWEET SOUP', sub: '“中国糖水在广东，广东糖水在化州”——一条街能开到凌晨。', kind: 'tangshui' },
+    { id: 'haixian', name: '博贺海味', unit: '样', kicker: 'SEAFOOD', sub: '广东最大渔港，全国最大海蜇与南风螺基地。', kind: 'haixian' },
+    { id: 'he', name: '籺', unit: '种', kicker: 'HE', sub: '读 hé，本地音近“ei”。米浆、薯粉、艾草，包什么都行。', kind: 'he' },
+    { id: 'gaoliang', name: '高凉菜', unit: '道', kicker: 'TABLE', sub: '一张桌子上最有代表性的八道。', kind: 'gaoliang' },
+    { id: 'juhong', name: '化橘红', unit: '档', kicker: 'CITRON', sub: '按绒毛分档，正毛、副毛、光青，还有最贵的橘红胎。', kind: 'juhong' },
+    { id: 'longan', name: '龙眼', unit: '个品种', kicker: 'LONGAN', sub: '储良、石硖、大乌圆、双孖木，鲜食与焙干各有所长。', kind: 'longan' },
+    { id: 'niuzha', name: '牛杂部位', unit: '样', kicker: 'BEEF', sub: '一锅清汤，剪刀现剪，部位不同口感全不同。', kind: 'niuzha' }
+  ];
+
   /* ---------------- 首页 ---------------- */
   function renderHome() {
     var todayItem = all()[(new Date().getDate() + new Date().getMonth()) % all().length];
@@ -557,6 +668,11 @@
         '<div class="arrive-t">' + a.t + '</div></div>';
     }).join('') + '</div>';
 
+    html += '<div class="pad"><div class="atlas-banner" data-act="go" data-v="atlas">' +
+      '<div class="ab-l"><span class="kicker">ATLAS</span><b>品种图谱</b>' +
+      '<span class="ab-sub">荔枝 12 个品种 · 化州糖水 10 碗 · 博贺海味 8 样 · 籺 6 种 · 高凉菜 8 道</span></div>' +
+      '<span class="ab-go">' + ICON.arrow + '</span></div></div>';
+
     html += foot();
     return html;
   }
@@ -589,6 +705,10 @@
     h += '<div class="hscroll">' + FOOD.map(function (f) {
       return '<div class="card food-card" data-act="open|' + f.id + '">' + pic(f, 'card-img') +
         '<div class="card-body"><div class="card-name">' + esc(f.name) + '</div><div class="card-sub">' + esc(f.cat) + '</div></div></div>';
+    }).join('') + '</div>';
+    h += '<div class="sec">' + secHead('ATLAS', '品种图谱', '荔枝 12 个品种、化州糖水 10 碗、博贺海味 8 样、籺 6 种。', { v: 'atlas', t: '全部' }) + '</div>';
+    h += '<div class="atlas-tiles">' + ATLAS.slice(0, 4).map(function (a) {
+      return '<button class="atlas-tile" data-act="atlasAt|' + a.id + '"><b>' + a.name + '</b><i>' + KINDS[a.kind].length + ' ' + a.unit + '</i></button>';
     }).join('') + '</div>';
     h += foot();
     return h;
@@ -757,8 +877,36 @@
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
   }
 
+  /* ---------------- 品种图谱 ---------------- */
+  function renderAtlas() {
+    var h = '';
+    h += '<div class="pagehead"><div class="kicker">ATLAS</div><h1>品种图谱</h1>' +
+      '<p>同样是荔枝，二月到九月能吃到十二个品种；同样一碗糖水，化州人能卖出十种。这里把“种类”摊开看。</p></div>';
+
+    h += '<div class="atlas-nav">' + ATLAS.map(function (a) {
+      return '<button class="atlas-chip" data-act="jump|a-' + a.id + '">' + a.name + '<i>' + KINDS[a.kind].length + '</i></button>';
+    }).join('') + '</div>';
+
+    ATLAS.forEach(function (a) {
+      var list = KINDS[a.kind] || [];
+      h += '<section class="atlas" id="a-' + a.id + '">' +
+        '<div class="atlas-h"><span class="kicker">' + a.kicker + '</span>' +
+        '<h2>' + a.name + '<i>' + list.length + ' ' + a.unit + '</i></h2>' +
+        '<p>' + a.sub + '</p></div>' +
+        '<div class="kindlist">' + list.map(function (k, i) {
+          return '<div class="kind"><span class="kid">' + (i + 1) + '</span><div>' +
+            '<div class="kt"><b>' + esc(k.n) + '</b><i>' + esc(k.t) + '</i></div>' +
+            '<p class="kd">' + esc(k.d) + '</p></div></div>';
+        }).join('') + '</div></section>';
+    });
+
+    h += '<div class="pad"><button class="btn red wide" data-act="go" data-v="goods">回到好物 ' + ICON.arrow + '</button></div>';
+    h += foot();
+    return h;
+  }
+
   /* ---------------- 路由 ---------------- */
-  var VIEWS = { home: renderHome, goods: renderGoods, spots: renderSpots, culture: renderCulture, me: renderMe };
+  var VIEWS = { home: renderHome, goods: renderGoods, spots: renderSpots, culture: renderCulture, me: renderMe, atlas: renderAtlas };
   var TABS = [
     { v: 'home', n: '首页', i: 'home' },
     { v: 'goods', n: '好物', i: 'goods' },
@@ -768,9 +916,10 @@
   ];
 
   function renderTabs() {
+    var active = S.view === 'atlas' ? 'goods' : S.view;
     tabsEl.innerHTML = TABS.map(function (t) {
       var badge = (t.v === 'me' && S.fav.length) ? '<span class="badge">' + S.fav.length + '</span>' : '';
-      return '<button class="tab" role="tab" data-act="go" data-v="' + t.v + '" aria-selected="' + (S.view === t.v) + '">' +
+      return '<button class="tab" role="tab" data-act="go" data-v="' + t.v + '" aria-selected="' + (active === t.v) + '">' +
         ICON[t.i] + '<span>' + t.n + '</span>' + badge + '</button>';
     }).join('');
   }
@@ -781,6 +930,8 @@
     view.classList.remove('view-enter');
     void view.offsetWidth;
     view.classList.add('view-enter');
+    var shell = document.getElementById('app');
+    if (shell) shell.setAttribute('data-view', S.view);
     renderTabs();
     observeReveal();
     countUp();
@@ -847,6 +998,15 @@
       return '<div class="fact"><b>' + s[0] + (s[1] ? '<i>' + s[1] + '</i>' : '') + '</b><span>' + s[2] + '</span></div>';
     }).join('') + '</div>';
     if (it.months) { h += '<div class="sheet-h">一年之中</div>' + monthBar(it.months); }
+    var ks = KINDS[id];
+    if (ks && ks.length) {
+      h += '<div class="sheet-h">品种与种类<i class="cnt">' + ks.length + '</i></div>' +
+        '<div class="kindlist">' + ks.map(function (k, i) {
+          return '<div class="kind"><span class="kid">' + (i + 1) + '</span><div>' +
+            '<div class="kt"><b>' + esc(k.n) + '</b><i>' + esc(k.t) + '</i></div>' +
+            '<p class="kd">' + esc(k.d) + '</p></div></div>';
+        }).join('') + '</div>';
+    }
     h += '<div class="sheet-h">细说</div>';
     it.paras.forEach(function (p) { h += '<p class="sheet-p">' + p + '</p>'; });
     if (it.tip) { h += '<div class="sheet-h">小提示</div><p class="sheet-p">' + it.tip + '</p>'; }
@@ -992,7 +1152,7 @@
     muxi: '木偶戏 高州木偶 杖头木偶 非遗',
     lihua: '荔枝花 花期 开花 春'
   };
-  var KIND_ORDER = ['好物', '景点', '味道', '人文', '非遗', '时令', '方言', '路线', '行程', '年表'];
+  var KIND_ORDER = ['好物', '品种', '景点', '味道', '人文', '非遗', '时令', '方言', '路线', '行程', '年表'];
 
   var IDX = (function () {
     var rows = [];
@@ -1012,6 +1172,17 @@
       });
     }
     base(GOODS, '好物'); base(SPOTS, '景点'); base(FOOD, '味道'); base(CULTURE, '人文');
+    Object.keys(KINDS).forEach(function (key) {
+      var parent = find(key);
+      var pname = parent ? parent.name : '茂名';
+      KINDS[key].forEach(function (k, i) {
+        add({
+          id: 'k-' + key + '-' + i, act: 'openKind|' + key, kind: '品种',
+          title: k.n, sub: pname + ' · ' + k.t, glyph: k.n.charAt(0),
+          tags: [pname, k.t, '品种'], paras: [k.d]
+        });
+      });
+    });
     HERITAGE.forEach(function (h) {
       add({ id: h.id, act: 'open|' + h.id, kind: '非遗', title: h.n, sub: h.s, img: h.img, tags: ['非遗', '民俗'] });
     });
@@ -1087,6 +1258,7 @@
   function openSearch() {
     searchEl.setAttribute('data-open', 'true');
     searchEl.setAttribute('aria-hidden', 'false');
+    document.getElementById('app').classList.add('searching');
     SEARCH_KIND = '全部';
     searchInput.value = '';
     renderSearch('');
@@ -1095,6 +1267,7 @@
   function closeSearch() {
     searchEl.setAttribute('data-open', 'false');
     searchEl.setAttribute('aria-hidden', 'true');
+    document.getElementById('app').classList.remove('searching');
   }
 
   function sresRow(r, terms) {
@@ -1258,6 +1431,29 @@
         openItem(pool[Math.floor(Math.random() * pool.length)].id);
         break;
       case 'searchMiss': toast('这条内容在页面里，去对应 tab 翻翻'); break;
+      case 'jump':
+        closeSearch();
+        S.view = 'atlas'; save(); mount();
+        setTimeout(function () {
+          var t = document.getElementById(b);
+          if (t) view.scrollTo({ top: t.offsetTop - 12, behavior: 'smooth' });
+        }, 60);
+        break;
+      case 'atlasAt':
+        closeSearch();
+        S.view = 'atlas'; save(); mount();
+        setTimeout(function () {
+          var t = document.getElementById('a-' + b);
+          if (t) view.scrollTo({ top: t.offsetTop - 12, behavior: 'smooth' });
+        }, 60);
+        break;
+      case 'openKind':
+        closeSearch(); openItem(b);
+        setTimeout(function () {
+          var t = sheetScroll.querySelector('.kindlist');
+          if (t) sheetScroll.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+        }, 200);
+        break;
       case 'cine': toggleCine(el); break;
       case 'motion':
         S.motion = !S.motion; save(); applyMotion(); mount();
