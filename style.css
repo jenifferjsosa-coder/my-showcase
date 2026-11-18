@@ -1,6 +1,6 @@
-/* ============================================================
+/* section */
    好心茂名 · 山海荔乡  —  样式
-   ============================================================ */
+/* section */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
@@ -73,7 +73,7 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
 a { color: inherit; text-decoration: none; }
 input, textarea { font: inherit; color: inherit; }
 
-/* ---------- 外壳 ---------- */
+/* section */
 #app {
   position: relative;
   width: 100%;
@@ -111,7 +111,7 @@ input, textarea { font: inherit; color: inherit; }
 .pad { padding: 0 18px; }
 .hr { height: 1px; background: var(--line-2); margin: 0 18px; }
 
-/* ---------- 通用标题 ---------- */
+/* section */
 .sec { padding: 26px 18px 4px; }
 .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .kicker {
@@ -124,7 +124,7 @@ input, textarea { font: inherit; color: inherit; }
 .more { font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 3px; white-space: nowrap; padding: 6px 2px; }
 .more:active { color: var(--red); }
 
-/* ---------- 首页 Hero ---------- */
+/* section */
 .hero {
   position: relative;
   height: min(78vh, 600px);
@@ -222,7 +222,7 @@ input, textarea { font: inherit; color: inherit; }
 .btn svg { width: 14px; height: 14px; flex: 0 0 auto; }
 .more svg { width: 13px; height: 13px; flex: 0 0 auto; }
 
-/* ---------- 数据条 ---------- */
+/* section */
 .stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
   margin: -6px 18px 0; padding: 16px 0;
@@ -236,7 +236,7 @@ input, textarea { font: inherit; color: inherit; }
 .stat b i { font-style: normal; font-size: 11px; color: var(--ink-3); margin-left: 1px; }
 .stat span { display: block; font-size: 10.5px; color: var(--ink-3); margin-top: 5px; letter-spacing: .04em; }
 
-/* ---------- 产业带 ---------- */
+/* section */
 .industry {
   margin: 22px 18px 0; padding: 20px;
   border-radius: var(--r-l);
@@ -266,7 +266,7 @@ input, textarea { font: inherit; color: inherit; }
 }
 .ind-chip:active { background: rgba(255, 255, 255, .3); }
 
-/* ---------- 卡片 ---------- */
+/* section */
 .hscroll {
   display: flex; gap: 12px; overflow-x: auto; padding: 4px 18px 6px;
   scroll-snap-type: x mandatory; scroll-padding-left: 18px; scrollbar-width: none;
@@ -312,7 +312,7 @@ input, textarea { font: inherit; color: inherit; }
 .gcard .card-img { aspect-ratio: 4 / 5; }
 .gcard .card-name { font-size: 15px; }
 
-/* ---------- 今日推荐 ---------- */
+/* section */
 .today {
   margin: 0 18px; border-radius: var(--r-l); overflow: hidden;
   position: relative; box-shadow: var(--shadow-m);
@@ -333,7 +333,7 @@ input, textarea { font: inherit; color: inherit; }
 .today-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
 .today-num { font-family: var(--serif); font-size: 13px; opacity: .9; }
 
-/* ---------- 时令 ---------- */
+/* section */
 .months { display: flex; gap: 6px; overflow-x: auto; padding: 2px 18px 4px; scrollbar-width: none; }
 .months::-webkit-scrollbar { display: none; }
 .m-chip {
@@ -357,7 +357,7 @@ input, textarea { font: inherit; color: inherit; }
   background: var(--paper-3); color: var(--ink-2);
 }
 
-/* ---------- 路线 ---------- */
+/* section */
 .route {
   width: 300px; background: var(--paper-2); border-radius: var(--r-m);
   box-shadow: var(--shadow-s); overflow: hidden;
@@ -379,7 +379,7 @@ input, textarea { font: inherit; color: inherit; }
 .route-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
 .route-time { font-size: 11px; color: var(--ink-3); }
 
-/* ---------- 到达 ---------- */
+/* section */
 .arrive { margin: 0 18px; display: grid; gap: 9px; }
 .arrive-row {
   display: flex; align-items: center; gap: 12px;
@@ -397,7 +397,7 @@ input, textarea { font: inherit; color: inherit; }
 .arrive-b span { display: block; font-size: 11.5px; color: var(--ink-3); margin-top: 2px; line-height: 1.5; }
 .arrive-t { font-family: var(--serif); font-size: 13px; color: var(--red); white-space: nowrap; }
 
-/* ---------- 页脚 ---------- */
+/* section */
 .foot {
   margin: 30px 18px 6px; padding: 18px 0 10px;
   border-top: 1px solid var(--line-2);
@@ -406,13 +406,13 @@ input, textarea { font: inherit; color: inherit; }
 .foot b { font-family: var(--serif); font-size: 13px; color: var(--ink-2); display: block; margin-bottom: 6px; letter-spacing: .06em; }
 .foot a { border-bottom: 1px solid var(--line); }
 
-/* ---------- 页头（二级页） ---------- */
+/* section */
 .pagehead { position: relative; padding: 22px 18px 6px; }
 .pagehead h1 { font-family: var(--serif); font-size: 30px; margin: 10px 0 0; letter-spacing: .04em; }
 .pagehead p { font-size: 12.5px; color: var(--ink-3); line-height: 1.8; margin: 8px 0 0; max-width: 320px; }
 .pagehead .kicker { margin-top: 4px; }
 
-/* ---------- 分类 chips ---------- */
+/* section */
 .chips { display: flex; gap: 8px; overflow-x: auto; padding: 16px 18px 6px; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
 .chip {
@@ -422,7 +422,7 @@ input, textarea { font: inherit; color: inherit; }
 }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
-/* ---------- 地图 ---------- */
+/* section */
 .map {
   margin: 14px 18px 4px; border-radius: var(--r-m); overflow: hidden;
   position: relative; background: linear-gradient(180deg, #e8f0e6 0%, #f1eee2 46%, #cfe7ea 62%, #a9d7de 100%);
@@ -444,7 +444,7 @@ input, textarea { font: inherit; color: inherit; }
 [data-theme="dark"] .map-pin span { background: rgba(20, 16, 14, .8); }
 .map-legend { position: absolute; left: 10px; bottom: 8px; font-size: 9px; color: var(--ink-3); letter-spacing: .08em; }
 
-/* ---------- 景点行卡片 ---------- */
+/* section */
 .slist { padding: 0 18px; display: grid; gap: 12px; }
 .srow { display: flex; gap: 12px; background: var(--paper-2); border-radius: var(--r-m); overflow: hidden; box-shadow: var(--shadow-s); }
 .srow-img { width: 116px; flex: 0 0 auto; position: relative; background: var(--paper-3); }
@@ -456,7 +456,7 @@ input, textarea { font: inherit; color: inherit; }
 .srow-line { font-size: 11.5px; color: var(--ink-2); line-height: 1.6; margin-top: 6px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .srow-meta { margin-top: auto; padding-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
 
-/* ---------- 时间轴 ---------- */
+/* section */
 .timeline { padding: 6px 18px 0; position: relative; }
 .timeline::before {
   content: ""; position: absolute; left: 33px; top: 14px; bottom: 18px; width: 1px;
@@ -471,7 +471,7 @@ input, textarea { font: inherit; color: inherit; }
 .tl-t { font-family: var(--serif); font-size: 16.5px; font-weight: 700; margin-top: 3px; }
 .tl-d { font-size: 12px; color: var(--ink-2); line-height: 1.8; margin-top: 5px; }
 
-/* ---------- 非遗 ---------- */
+/* section */
 .heritage { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 18px; }
 .hcard {
   position: relative; border-radius: 14px; overflow: hidden; min-height: 108px;
@@ -483,13 +483,13 @@ input, textarea { font: inherit; color: inherit; }
 .hcard b { font-family: var(--serif); font-size: 14.5px; display: block; }
 .hcard span { font-size: 9.5px; opacity: .8; display: block; margin-top: 3px; letter-spacing: .06em; }
 
-/* ---------- 方言 ---------- */
+/* section */
 .dialect { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 18px; }
 .dia { padding: 11px 13px; border-radius: 12px; background: var(--paper-2); border: 1px solid var(--line-2); }
 .dia b { font-family: var(--serif); font-size: 15px; color: var(--red); }
 .dia span { display: block; font-size: 11px; color: var(--ink-3); margin-top: 3px; line-height: 1.5; }
 
-/* ---------- 我的 ---------- */
+/* section */
 .profile {
   margin: 0 18px; padding: 20px; border-radius: var(--r-l);
   background: linear-gradient(150deg, #17110e, #2a1c17 60%, #3a231c);
@@ -527,7 +527,7 @@ input, textarea { font: inherit; color: inherit; }
 .empty { text-align: center; padding: 34px 20px; color: var(--ink-3); font-size: 12.5px; }
 .empty svg { width: 30px; height: 30px; opacity: .4; margin-bottom: 8px; }
 
-/* ---------- 底部导航 ---------- */
+/* section */
 .tabs {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 40;
   display: grid; grid-template-columns: repeat(5, 1fr);
@@ -556,7 +556,7 @@ input, textarea { font: inherit; color: inherit; }
   background: var(--red); color: #fff; font-size: 9px; line-height: 15px; text-align: center;
 }
 
-/* ---------- 详情面板 ---------- */
+/* section */
 #sheet {
   position: absolute; inset: 0; z-index: 60; pointer-events: none;
 }
@@ -612,7 +612,7 @@ input, textarea { font: inherit; color: inherit; }
 .sheet-actions .btn { flex: 1; justify-content: center; }
 .icobtn.plain { background: var(--paper-2); border: 1px solid var(--line); color: var(--ink); }
 
-/* ---------- 搜索 ---------- */
+/* section */
 #search {
   position: absolute; inset: 0; z-index: 70; background: var(--paper);
   display: flex; flex-direction: column;
@@ -671,7 +671,7 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
 .search-more { padding: 16px; text-align: center; font-size: 11.5px; color: var(--ink-3); }
 .search-hot { padding: 12px 16px 4px; font-size: 11px; color: var(--ink-3); letter-spacing: .1em; }
 
-/* ---------- toast ---------- */
+/* section */
 #toast {
   position: absolute; left: 50%; bottom: calc(var(--tab-h) + 26px); z-index: 90;
   transform: translate(-50%, 12px); opacity: 0; pointer-events: none;
@@ -682,7 +682,7 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
 }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-/* ---------- 图片加载 ---------- */
+/* section */
 .imgwrap { position: relative; overflow: hidden; background: linear-gradient(120deg, var(--paper-3), var(--paper-2), var(--paper-3)); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; }
 .imgwrap.done { animation: none; background: var(--paper-3); }
 .imgwrap img { opacity: 0; transition: opacity .5s; }
@@ -693,7 +693,7 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
 .nightcap span { font-size: 11.5px; color: rgba(255, 255, 255, .82); }
 @keyframes shimmer { from { background-position: 0 0; } to { background-position: -200% 0; } }
 
-/* ---------- 动效 ---------- */
+/* section */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
@@ -701,12 +701,12 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
   .reveal { opacity: 1; transform: none; }
 }
 
-/* ---------- 工具 ---------- */
+/* section */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .nowrap { white-space: nowrap; }
 .tac { text-align: center; }
 
-/* ---------- 跑马灯 ---------- */
+/* section */
 .ribbon {
   margin-top: 12px; overflow: hidden; background: var(--paper-2);
   border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2);
@@ -719,7 +719,7 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
 .ribbon-in i { color: var(--red); font-style: normal; opacity: .7; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ---------- 动态图册 ---------- */
+/* section */
 .cinema { margin: 18px 18px 4px; }
 .cine-frame {
   position: relative; border-radius: var(--r-l); overflow: hidden;
@@ -745,7 +745,7 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
 .cine-cap b { font-family: var(--serif); font-size: 16px; letter-spacing: .05em; }
 .cine-cap span { display: block; font-size: 10.5px; color: rgba(255, 255, 255, .78); margin-top: 3px; }
 
-/* ---------- 滚动进度 & 飘叶 ---------- */
+/* section */
 #progressbar { position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 60; pointer-events: none; }
 #progressbar i {
   display: block; height: 100%; transform: scaleX(0); transform-origin: 0 50%;
@@ -760,3 +760,80 @@ mark { background: rgba(192, 48, 74, .16); color: var(--red); border-radius: 3px
 [data-motion="off"] #progressbar { display: none; }
 [data-motion="off"] .reveal { opacity: 1; transform: none; transition: none; }
 
+
+/* section */
+/* section */
+.atlas-banner {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; border-radius: var(--r-m);
+  background: linear-gradient(135deg, #2b1a17, #46231f 60%, #6b2a2b);
+  color: #fff; box-shadow: var(--shadow-s); cursor: pointer;
+}
+.atlas-banner .kicker { color: rgba(255, 255, 255, .5); }
+.atlas-banner .ab-l { flex: 1; min-width: 0; }
+.atlas-banner b { display: block; font-family: var(--serif); font-size: 19px; letter-spacing: .06em; margin: 2px 0 3px; }
+.atlas-banner .ab-sub { display: block; font-size: 11px; color: rgba(255, 255, 255, .7); line-height: 1.5; }
+.atlas-banner .ab-go { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .14); flex: 0 0 auto; }
+.atlas-banner .ab-go svg { width: 13px; height: 13px; }
+
+.atlas-nav { display: flex; gap: 7px; overflow-x: auto; padding: 2px 18px 10px; scrollbar-width: none; scroll-padding-left: 18px; }
+.atlas-nav::-webkit-scrollbar { display: none; }
+.atlas-chip {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--paper-2); color: var(--ink); font-size: 12.5px; cursor: pointer;
+}
+.atlas-chip i { font-style: normal; font-size: 10px; color: var(--red); background: rgba(192, 48, 74, .1); border-radius: 999px; padding: 1px 5px; }
+
+.atlas { padding: 6px 18px 4px; }
+.atlas-h { padding: 16px 0 8px; border-top: 1px solid var(--line); }
+.atlas-h .kicker { display: block; }
+.atlas-h h2 { font-family: var(--serif); font-size: 22px; letter-spacing: .04em; margin: 3px 0 4px; }
+.atlas-h h2 i { font-style: normal; font-size: 11px; color: var(--ink-3); margin-left: 8px; letter-spacing: 0; font-family: var(--sans); }
+.atlas-h p { font-size: 12.5px; color: var(--ink-2); line-height: 1.65; }
+
+.atlas-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; padding: 2px 18px 6px; }
+.atlas-tile {
+  text-align: left; padding: 12px 13px; border-radius: var(--r-m); cursor: pointer;
+  border: 1px solid var(--line); background: var(--paper-2); box-shadow: var(--shadow-s);
+}
+.atlas-tile b { display: block; font-family: var(--serif); font-size: 15.5px; letter-spacing: .03em; color: var(--ink); }
+.atlas-tile i { font-style: normal; font-size: 11px; color: var(--red); }
+
+.kindlist { display: flex; flex-direction: column; gap: 2px; }
+.kind { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.kind:last-child { border-bottom: 0; }
+.kid {
+  flex: 0 0 auto; width: 20px; height: 20px; border-radius: 6px; margin-top: 1px;
+  display: grid; place-items: center; font-size: 10.5px; font-weight: 700;
+  color: var(--red); background: rgba(192, 48, 74, .09);
+}
+.kt { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.kt b { font-size: 14px; letter-spacing: .02em; color: var(--ink); }
+.kt i { font-style: normal; font-size: 10.5px; color: var(--sea); background: rgba(15, 103, 113, .08); border-radius: 4px; padding: 1px 6px; }
+.kd { font-size: 12px; color: var(--ink-2); line-height: 1.6; margin-top: 3px; }
+.sheet-h .cnt {
+  font-style: normal; font-size: 10.5px; color: #fff; background: var(--red);
+  border-radius: 999px; padding: 1px 7px; margin-left: 7px; vertical-align: 2px;
+}
+.btn.wide { width: 100%; justify-content: center; }
+
+/* ===== 全局搜索入口 ===== */
+/* ---------- 全局搜索入口 ---------- */
+#quicks {
+  position: absolute; z-index: 20;
+  top: calc(env(safe-area-inset-top) + 12px); right: 14px;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(255, 253, 248, .88);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-s);
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  transition: transform .2s var(--ease), opacity .2s;
+}
+#quicks svg { width: 18px; height: 18px; }
+#quicks:active { transform: scale(.92); }
+#app[data-view="home"] #quicks { display: none; }
+#app.searching #quicks { display: none; }
+[data-theme="dark"] #quicks { background: rgba(34, 27, 24, .88); color: var(--ink); }
