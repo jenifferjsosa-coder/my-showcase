@@ -613,6 +613,12 @@
       }).join('') +
       '</div></div>';
 
+    /* 品种图谱入口 */
+    html += '<div class="pad reveal"><div class="atlas-banner" data-act="go" data-v="atlas">' +
+      '<div class="ab-l"><span class="kicker">ATLAS</span><b>品种图谱</b>' +
+      '<span class="ab-sub">荔枝 12 个品种 · 化州糖水 10 碗 · 博贺海味 8 样 · 籺 6 种 · 高凉菜 8 道</span></div>' +
+      '<span class="ab-go">' + ICON.arrow + '</span></div></div>';
+
     /* 今日推荐 */
     html += '<div class="sec">' + secHead('TODAY', '今日一物', '按日子轮着来，今天轮到它。', { v: 'goods', t: '全部' }) + '</div>';
     html += '<div class="today reveal" data-act="open|' + todayItem.id + '">' +
@@ -667,11 +673,6 @@
         '<div class="arrive-b"><b>' + a.b + '</b><span>' + a.s + '</span></div>' +
         '<div class="arrive-t">' + a.t + '</div></div>';
     }).join('') + '</div>';
-
-    html += '<div class="pad"><div class="atlas-banner" data-act="go" data-v="atlas">' +
-      '<div class="ab-l"><span class="kicker">ATLAS</span><b>品种图谱</b>' +
-      '<span class="ab-sub">荔枝 12 个品种 · 化州糖水 10 碗 · 博贺海味 8 样 · 籺 6 种 · 高凉菜 8 道</span></div>' +
-      '<span class="ab-go">' + ICON.arrow + '</span></div></div>';
 
     html += foot();
     return html;
