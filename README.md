@@ -4,6 +4,16 @@
 
 纯静态，无框架、无构建、无依赖：双击 `index.html` 就能看，也能直接丢到 GitHub Pages 上。
 
+**在线地址（GitHub Pages）**：https://jenifferjsosa-coder.github.io/my-showcase/
+
+## 有什么
+
+- 五个 tab：首页 / 好物 / 游玩 / 人文 / 我的，70+ 张本地照片，深色模式
+- **内置搜索引擎**：27 组同义词（搜「妃子笑」也能命中荔枝）、分类筛选、命中高亮、搜索历史、耗时统计、随便逛逛
+- **动效层**：跑马灯、动态图册（WebP 逐帧短片）、飘叶、滚动进度条、hero 视差，可在「我的 → 设置 → 动效」一键关掉
+- **PWA**：manifest + Service Worker + 图标，手机上「添加到主屏幕」后像 App 一样全屏打开，离线也能看
+- **微信小程序外壳**：`miniprogram/` 用 `web-view` 承载网页版（`miniprogram/pages/index/index.js` 里把 `SITE` 换成上面的在线地址）
+
 ## 打开方式
 
 - 直接看：双击 `index.html`
@@ -18,10 +28,15 @@ python -m http.server 8123
 ## 目录
 
 ```
-index.html      外壳：顶部搜索层、内容区 #view、底部 5 个 tab、详情面板 #sheet
-style.css       全部样式（配色 / 手机壳 / 动效 / 深色模式）
-app.js          全部逻辑与内容数据（IIFE，无依赖）
-assets/         图片：xxx.jpg 长边 1400，xxx-s.jpg 宽 640 缩略图
+index.html            外壳：顶部搜索层、内容区 #view、底部 5 个 tab、详情面板 #sheet
+style.css             全部样式（配色 / 手机壳 / 动效 / 深色模式）
+app.js                全部逻辑与内容数据（IIFE，无依赖）
+manifest.webmanifest  PWA 清单（名称、图标、快捷方式）
+sw.js                 Service Worker：首屏预缓存 + 同源 stale-while-revalidate
+assets/               图片：xxx.jpg 长边 1400，xxx-s.jpg 宽 640 缩略图
+assets/motion/        maoming.webp 动态图册（560×350，60 帧）+ poster.jpg 封面
+assets/icons/         192 / 512 / apple-touch 图标
+miniprogram/          微信小程序外壳（web-view 版）
 ```
 
 ## 五个 tab
@@ -41,6 +56,28 @@ assets/         图片：xxx.jpg 长边 1400，xxx-s.jpg 宽 640 缩略图
 - 分享卡：canvas 画一张 900×1200 的竖版卡片；`file://` 下浏览器会禁止导出，页面会提示长按截图
 - 夜间模式、搜索层（热门词直接点）、数字滚动、滚动淡入
 - 数据只存本机 `localStorage`，键名 `maoming.v2`
+
+## 搜索怎么做的
+
+`app.js` 里先把好物 / 景点 / 味道 / 人文 / 非遗 / 时令 / 方言 / 路线 / 行程 / 年表全部压成一条条索引 `IDX`，每条带 `title / sub / tags / text / alias`。
+
+打分规则：标题完全相同 120 · 标题前缀 84 · 标题包含 58 · 标签命中 30 · 同义词命中 26 · 正文包含 12；多个关键词是 AND 关系，命中后按分数和分类顺序排，命中的字用 `<mark>` 高亮。
+
+## 部署到 GitHub Pages
+
+1. 把整个目录推到仓库（默认分支 `main`）
+2. 仓库 → Settings → Pages → Source 选 `Deploy from a branch`，Branch 选 `main` / `(root)`，保存
+3. 一两分钟后访问 `https://<用户名>.github.io/<仓库名>/`
+4. 换成自己的域名：Settings → Pages → Custom domain
+
+## 做成微信小程序
+
+1. 微信开发者工具「导入项目」，目录选 `miniprogram/`，AppID 填自己的（没有就先用测试号）
+2. 改 `miniprogram/pages/index/index.js` 里的 `SITE`，填上面 Pages 的地址（必须 https）
+3. 小程序后台 → 开发 → 开发管理 → 开发设置 → 服务器域名 → **业务域名** 加上 `jenifferjsosa-coder.github.io`，并按提示把校验文件放到仓库根目录
+4. 真机预览：web-view 里的页面点开就是网页版全部内容
+
+> 注意：web-view 组件要求小程序主体已完成认证；业务域名校验文件放在仓库根目录后，要等 Pages 重新部署完成再回后台点「保存」。
 
 ## 数据来源
 
