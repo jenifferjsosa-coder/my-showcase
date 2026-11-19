@@ -36,7 +36,8 @@ sw.js                 Service Worker：首屏预缓存 + 同源 stale-while-reva
 assets/               图片：xxx.jpg 长边 1400，xxx-s.jpg 宽 640 缩略图
 assets/motion/        maoming.webp 动态图册（560×350，60 帧）+ poster.jpg 封面
 assets/icons/         192 / 512 / apple-touch 图标
-miniprogram/          微信小程序外壳（web-view 版）
+miniprogram/          原生微信小程序（8 个页面，与网页版同素材）
+miniprogram-webview/  旧的 web-view 外壳（保留备用）
 ```
 
 ## 五个 tab
@@ -89,35 +90,14 @@ KINDS = {
 
 ## 做成微信小程序
 
-1. 微信开发者工具「导入项目」，目录选 `miniprogram/`，AppID 填自己的（没有就先用测试号）
-2. 改 `miniprogram/pages/index/index.js` 里的 `SITE`，填上面 Pages 的地址（必须 https）
-3. 小程序后台 → 开发 → 开发管理 → 开发设置 → 服务器域名 → **业务域名** 加上 `jenifferjsosa-coder.github.io`，并按提示把校验文件放到仓库根目录
-4. 真机预览：web-view 里的页面点开就是网页版全部内容
+miniprogram/ 是**原生小程序**工程，不是 web-view 外壳。
 
-> 注意：web-view 组件要求小程序主体已完成认证；业务域名校验文件放在仓库根目录后，要等 Pages 重新部署完成再回后台点「保存」。
+1. 微信开发者工具 → 导入项目 → 目录选 miniprogram/
+2. AppID：project.config.json 里默认填了本机缓存账号的 AppID，换成自己的即可；没有就去公众平台注册一个
+3. 「详情 → 本地设置」勾选**不校验合法域名**（图片来自 GitHub Pages 的 https 地址）；正式发布前把 jenifferjsosa-coder.github.io 加进 downloadFile 合法域名，或把图片搬到自家 CDN
+4. 渲染引擎保持 `webview`（`app.json` 里的 `renderer` 字段）
+5. 预览：工具右上角「预览」扫码；发布：右上角「上传」→ 公众平台「版本管理」提交审核
 
-## 数据来源
-
-茂名市人民政府、广东省人民政府、广东省农业农村厅、南方日报、茂名发布、澎湃新闻等公开报道（2024—2026）。主要口径：
-
-- 荔枝：2025 年 141.92 万亩 / 62.23 万吨，约占广东一半、全国四分之一、全球五分之一；贡园 31 株古荔超 500 年，其中 9 株逾千年
-- 化橘红：1000 多年种植史，1990 年入《中国药典》，2006 年地理标志，2024 年入国家"药食同源"目录
-- 沉香：27.72 万亩，全产业链产值 68.6 亿元，企业 8500 多家，从业 15 万人
-- 总盘："五棵树一条鱼一桌菜"产业链产值突破 550 亿元，带动近 60 万农民
-- 文旅：2023 年接待游客 1600 余万人次、旅游收入 173 亿元；截至 2024 年 11 月 32 个 A 级景区（11 个 4A）
-
-产量、面积等为对应年份口径，出行前请以景区与官方最新公告为准。
-
-## 图片说明
-
-`assets/` 内的照片来自公开网络，仅用于非商业展示与学习；**商用请替换为授权素材**。抓到原图的流程脚本在 `_probe/`（已在 `.gitignore` 里，不会上传）。
-
-## 改内容
-
-所有文案都在 `app.js` 顶部的数据数组里，改完刷新即可：
-
-- `GOODS` 好物、`SPOTS` 景点、`FOOD` 美食、`CULTURE` 故事
-- `TIMELINE` 时间轴、`HERITAGE` 非遗、`MONTHS` 十二个月、`DIALECT` 方言、`ROUTES` 路线、`ARRIVE` 交通
-- 每条含 `id / name / area / cat / img / tag / line / stats / paras / tip / months`；`img` 写 `assets/xxx`，会自动加 `.jpg` 与 `-s.jpg`
-
-新增一条内容：在对应数组里加一项，把图放进 `assets/`，命名一致即可。
+页面：首页 / 好物 / 游玩 / 人文 / 我的（tabBar 五页）+ 品种图谱 / 详情 / 搜索（跳转页）。
+数据在 `miniprogram/utils/data.js`（从网页版 `app.js` 抽取），改文案先改网页版再重新生成。
+头像与简介文案见 [小程序资料.md](小程序资料.md)。
