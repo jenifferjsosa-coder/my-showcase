@@ -1,4 +1,105 @@
-page {
-  height: 100%;
-  background: #fbf6ee;
+/* 封面 */
+.hero { position: relative; height: 620rpx; overflow: hidden; }
+.hero-img { width: 100%; height: 100%; }
+.hero-mask {
+  position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(18, 10, 8, .62) 0%, rgba(18, 10, 8, .12) 30%, rgba(18, 10, 8, .34) 55%, rgba(251, 246, 238, .96) 88%, #fbf6ee 100%),
+              linear-gradient(90deg, rgba(18, 10, 8, .5) 0%, rgba(18, 10, 8, 0) 55%);
 }
+.hero-top { position: absolute; left: 32rpx; right: 210rpx; top: 150rpx; display: flex; align-items: center; justify-content: space-between; }
+.brand { color: #fff; font-size: 24rpx; letter-spacing: 4rpx; }
+.tools { display: flex; }
+.ico {
+  width: 68rpx; height: 68rpx; border-radius: 50%; color: #fff; font-size: 24rpx;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, .18); border: 1rpx solid rgba(255, 255, 255, .3);
+}
+.hero-copy { position: absolute; left: 36rpx; right: 36rpx; bottom: 40rpx; }
+.hero-k { display: block; color: rgba(255, 255, 255, .82); font-size: 22rpx; letter-spacing: 8rpx; }
+.hero-t { display: block; font-family: Georgia, "Songti SC", serif; font-size: 76rpx; color: #fff; letter-spacing: 6rpx; margin: 8rpx 0 16rpx; }
+.hero-d .line { display: block; font-size: 24rpx; color: #3a322d; line-height: 1.7; }
+.hero-btns { display: flex; align-items: center; gap: 20rpx; margin-top: 24rpx; }
+
+.lift { margin-top: -46rpx; position: relative; z-index: 2; }
+
+/* 产业 */
+.industry {
+  margin-top: 34rpx; padding: 34rpx 32rpx 30rpx; border-radius: 28rpx; color: #fff;
+  background: linear-gradient(135deg, #a32238, #c0304a 55%, #8d1f33);
+  box-shadow: 0 18rpx 40rpx -20rpx rgba(141, 31, 51, .8);
+}
+.ind-k { font-size: 20rpx; letter-spacing: 5rpx; color: rgba(255, 255, 255, .62); }
+.ind-t { font-size: 40rpx; letter-spacing: 2rpx; margin: 10rpx 0 12rpx; }
+.ind-n .num { font-family: Georgia, serif; font-size: 76rpx; }
+.ind-n .unit { font-size: 26rpx; margin-left: 8rpx; }
+.ind-d { font-size: 23rpx; color: rgba(255, 255, 255, .8); line-height: 1.7; margin-top: 6rpx; }
+.ind-chips { display: flex; flex-wrap: wrap; gap: 12rpx; margin-top: 22rpx; }
+.ind-chip { font-size: 22rpx; padding: 8rpx 20rpx; border-radius: 999rpx; background: rgba(255, 255, 255, .16); }
+
+/* 图谱入口 */
+.atlas-band {
+  margin-top: 26rpx; padding: 26rpx 28rpx; border-radius: 26rpx; color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, #2b1a17, #46231f 60%, #6b2a2b);
+}
+.ab-l { flex: 1; padding-right: 16rpx; }
+.ab-k { display: block; font-size: 20rpx; letter-spacing: 5rpx; color: rgba(255, 255, 255, .5); }
+.ab-t { display: block; font-size: 38rpx; letter-spacing: 3rpx; margin: 6rpx 0; }
+.ab-s { display: block; font-size: 21rpx; color: rgba(255, 255, 255, .72); line-height: 1.6; }
+.ab-go { font-size: 40rpx; color: rgba(255, 255, 255, .6); }
+
+/* 今日一物 */
+.today { position: relative; height: 400rpx; border-radius: 26rpx; overflow: hidden; box-shadow: 0 10rpx 30rpx -14rpx rgba(84, 44, 28, .5); }
+.today-img { width: 100%; height: 100%; }
+.today-mask { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(16, 9, 6, .1) 0%, rgba(16, 9, 6, .45) 44%, rgba(16, 9, 6, .9) 100%), linear-gradient(90deg, rgba(16, 9, 6, .5), rgba(16, 9, 6, .04) 66%); }
+.today-in { position: absolute; left: 30rpx; right: 30rpx; bottom: 26rpx; color: #fff; }
+.today-k { font-size: 22rpx; color: rgba(255, 255, 255, .78); }
+.today-t { font-size: 46rpx; letter-spacing: 2rpx; margin: 6rpx 0; text-shadow: 0 2rpx 12rpx rgba(0, 0, 0, .5); }
+.today-d { font-size: 23rpx; color: rgba(255, 255, 255, .86); line-height: 1.6; }
+.today-f { display: flex; align-items: center; justify-content: space-between; margin-top: 18rpx; }
+.today-num { font-size: 23rpx; color: #ffd9dc; }
+.today-btn { font-size: 22rpx; padding: 10rpx 24rpx; border-radius: 999rpx; background: #c0304a; }
+
+/* 时令 */
+.months { display: flex; flex-wrap: wrap; gap: 12rpx; }
+.mchip {
+  width: 88rpx; height: 88rpx; border-radius: 18rpx; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; background: #fffdf8; font-size: 22rpx; color: #514741;
+  border: 1rpx solid rgba(29, 25, 23, .08);
+}
+.mchip.on { background: #c0304a; color: #fff; border-color: #c0304a; }
+.mtip { margin-top: 20rpx; padding: 24rpx; background: #fffdf8; border-radius: 22rpx; border-left: 6rpx solid #c0304a; }
+.mtip-k { display: inline-block; font-size: 24rpx; color: #c0304a; font-weight: 700; margin-right: 10rpx; }
+.mtip-t { font-size: 24rpx; }
+.mtip-s { display: block; font-size: 22rpx; color: #8b8078; margin-top: 8rpx; }
+
+/* 景点卡 */
+.sp-img { width: 100%; height: 220rpx; }
+.sp-b { padding: 18rpx 20rpx 22rpx; }
+.sp-n { font-size: 30rpx; }
+.sp-a { font-size: 21rpx; color: #c0304a; margin: 4rpx 0 8rpx; }
+.sp-l { font-size: 22rpx; color: #8b8078; line-height: 1.6; }
+
+/* 美食卡 */
+.food { width: 240rpx !important; }
+.fd-img { width: 100%; height: 240rpx; border-radius: 22rpx; }
+.fd-n { font-size: 27rpx; margin-top: 12rpx; }
+.fd-a { font-size: 21rpx; color: #8b8078; }
+
+/* 路线卡 */
+.route { width: 560rpx !important; padding: 28rpx; border-radius: 26rpx; background: #fffdf8; box-shadow: 0 4rpx 20rpx rgba(84, 44, 28, .07); }
+.rt-days { font-size: 21rpx; color: #c0304a; }
+.rt-name { font-size: 36rpx; margin: 4rpx 0; }
+.rt-area { font-size: 21rpx; color: #8b8078; }
+.rt-steps { margin: 16rpx 0 8rpx; }
+.rt-step { font-size: 22rpx; color: #514741; line-height: 1.7; }
+.rt-time { font-size: 21rpx; color: #0f6771; }
+
+/* 到达 */
+.arrive { background: #fffdf8; border-radius: 26rpx; padding: 8rpx 24rpx; box-shadow: 0 4rpx 20rpx rgba(84, 44, 28, .07); }
+.ar-row { display: flex; align-items: center; justify-content: space-between; padding: 22rpx 0; border-bottom: 1rpx solid rgba(29, 25, 23, .06); }
+.ar-row:last-child { border-bottom: 0; }
+.ar-b { flex: 1; padding-right: 16rpx; }
+.ar-k { display: block; font-size: 27rpx; }
+.ar-s { display: block; font-size: 21rpx; color: #8b8078; line-height: 1.6; }
+.ar-t { font-size: 23rpx; color: #c0304a; }

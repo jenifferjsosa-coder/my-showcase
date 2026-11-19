@@ -1,0 +1,61 @@
+<view class="page" wx:if="{{it}}">
+  <view class="cover" bindtap="preview">
+    <image class="cover-img" src="{{it.big}}" mode="aspectFill"></image>
+  </view>
+
+  <view class="body">
+    <text class="kicker">{{it.area}}</text>
+    <view class="t serif">{{it.name}}</view>
+    <view class="line">{{it.line}}</view>
+    <view class="pills">
+      <text class="pill" wx:if="{{it.monthText}}">时令 {{it.monthText}}</text>
+      <text class="pill red" wx:if="{{it.tag}}">{{it.tag}}</text>
+      <text class="pill" wx:if="{{it.cat}}">{{it.cat}}</text>
+    </view>
+
+    <view class="block" wx:if="{{it.stats.length}}">
+      <view class="b-h"><text class="bar"></text>关键数字</view>
+      <view class="stats2">
+        <view class="s2" wx:for="{{it.stats}}" wx:key="l">
+          <view class="s2-v"><text class="s2-n">{{item.n}}</text><text class="s2-u">{{item.u}}</text></view>
+          <view class="s2-l">{{item.l}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="block">
+      <view class="b-h"><text class="bar"></text>一年之中</view>
+      <view class="mrow">
+        <view class="mcell {{item.on ? 'on' : ''}}" wx:for="{{it.months}}" wx:key="m">{{item.m}}</view>
+      </view>
+    </view>
+
+    <view class="block" wx:if="{{kinds.length}}">
+      <view class="b-h"><text class="bar"></text>品种与种类<text class="cnt">{{kinds.length}}</text></view>
+      <view class="kl">
+        <view class="k" wx:for="{{kinds}}" wx:key="n">
+          <text class="kid">{{item.i}}</text>
+          <view class="kb">
+            <view class="kn"><text class="kname">{{item.n}}</text><text class="kt">{{item.t}}</text></view>
+            <view class="kd">{{item.d}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="block" wx:if="{{it.paras.length}}">
+      <view class="b-h"><text class="bar"></text>细说</view>
+      <view class="para" wx:for="{{it.paras}}" wx:key="*this">{{item}}</view>
+    </view>
+
+    <view class="tip" wx:if="{{it.tip}}">
+      <text class="tip-k">小提示</text>
+      <text class="tip-v">{{it.tip}}</text>
+    </view>
+  </view>
+
+  <view class="bar-bottom">
+    <view class="bb-fav {{faved ? 'on' : ''}}" bindtap="toggleFav">{{faved ? '已收藏' : '收藏 +2'}}</view>
+    <button class="bb-share" open-type="share">分享给朋友</button>
+  </view>
+</view>

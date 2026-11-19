@@ -1,0 +1,26 @@
+<view class="page">
+  <view class="head">
+    <text class="kicker">TRAVEL</text>
+    <view class="h1 serif">一路向海，一路进山</view>
+    <view class="hsub">北边是云开大山与云雾山，南边是 182 公里海岸线。截至 2024 年 11 月，茂名有 32 个 A 级景区，其中 11 个 4A。</view>
+  </view>
+
+  <view class="pad">
+    <view class="chips">
+      <text class="chip {{cat === item ? 'on' : ''}}" wx:for="{{cats}}" wx:key="*this" data-cat="{{item}}" bindtap="pickCat">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="row card" wx:for="{{list}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
+      <image class="row-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="row-b">
+        <view class="row-n">{{item.name}}<text class="tag sm">{{item.tag}}</text></view>
+        <view class="row-a">{{item.area}}</view>
+        <view class="row-l">{{item.line}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="note">景区开放时间与票价以官方公告为准。</view>
+</view>

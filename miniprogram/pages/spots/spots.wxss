@@ -1,0 +1,11 @@
+page { background: #fbf6ee; }
+.head { padding: 36rpx 32rpx 20rpx; }
+.h1 { font-size: 52rpx; letter-spacing: 1rpx; margin-top: 6rpx; }
+.hsub { font-size: 24rpx; color: #514741; line-height: 1.75; margin-top: 12rpx; }
+.list { padding: 24rpx 24rpx 0; }
+.row { display: flex; margin: 0 12rpx 22rpx; padding: 18rpx; }
+.row-img { width: 200rpx; height: 200rpx; border-radius: 18rpx; flex: 0 0 auto; }
+.row-b { flex: 1; padding-left: 20rpx; display: flex; flex-direction: column; justify-content: center; }
+.row-n { font-size: 31rpx; display: flex; align-items: center; flex-wrap: wrap; }
+.row-a { font-size: 21rpx; color: #8b8078; margin: 6rpx 0 10rpx; }
+.row-l { font-size: 23rpx; color: #514741; line-height: 1.6; }

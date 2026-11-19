@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="head">
+    <text class="kicker">TREASURES</text>
+    <view class="h1 serif">五棵树，一条鱼</view>
+    <view class="hsub">荔枝、龙眼、三华李、化橘红、沉香，是茂名的“五棵树”；罗非鱼是“一条鱼”；一张高凉菜的桌子，是“一桌菜”。</view>
+  </view>
+
+  <view class="pad">
+    <view class="chips">
+      <text class="chip {{cat === item ? 'on' : ''}}" wx:for="{{cats}}" wx:key="*this" data-cat="{{item}}" bindtap="pickCat">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="grid">
+    <view class="gcard card" wx:for="{{list}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
+      <image class="g-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="g-b">
+        <view class="g-n">{{item.name}}</view>
+        <view class="g-a">{{item.area}}</view>
+        <view class="g-t"><text class="tag">{{item.tag}}</text></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-top">
+      <view>
+        <text class="kicker">ATLAS</text>
+        <view class="sec-title">品种图谱</view>
+      </view>
+    </view>
+    <view class="sec-sub">荔枝 12 个品种、化州糖水 10 碗、博贺海味 8 样、籺 6 种。</view>
+  </view>
+
+  <view class="pad">
+    <view class="tiles">
+      <view class="tile" wx:for="{{atlas}}" wx:key="id" bindtap="openAtlas" data-id="{{item.id}}">
+        <view class="tile-n serif">{{item.name}}</view>
+        <view class="tile-c">{{item.count}} {{item.unit}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="note">照片来自公开网络，仅用于非商业展示；商用请替换授权素材。</view>
+</view>

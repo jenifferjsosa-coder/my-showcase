@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="sbar">
+    <input class="sin" value="{{q}}" placeholder="搜荔枝、放鸡岛、年例、捞粉…" bindinput="onInput" placeholder-class="ph" confirm-type="search" focus="true" />
+  </view>
+
+  <!-- 空态 -->
+  <block wx:if="{{!q}}">
+    <view class="pad" wx:if="{{recent.length}}">
+      <view class="sec-h"><text class="kicker">RECENT</text><text class="clear" bindtap="clearRecent">清空</text></view>
+      <view class="tags">
+        <text class="tg" wx:for="{{recent}}" wx:key="*this" data-q="{{item}}" bindtap="hotTap">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="pad">
+      <view class="sec-h"><text class="kicker">HOT</text></view>
+      <view class="tags">
+        <text class="tg hot" wx:for="{{hot}}" wx:key="*this" data-q="{{item}}" bindtap="hotTap">{{index + 1}} {{item}}</text>
+      </view>
+    </view>
+
+    <view class="pad">
+      <view class="sec-h"><text class="kicker">BROWSE</text></view>
+      <view class="tags">
+        <text class="tg" wx:for="{{['好物','品种','景点','味道','人文','时令']}}" wx:key="*this" data-q="{{item}}" bindtap="hotTap">{{item}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 结果 -->
+  <block wx:else>
+    <view class="pad">
+      <view class="stat">{{count}} 条结果 · 用时 {{ms}} ms · 「{{q}}」</view>
+      <view class="tags" wx:if="{{kinds.length}}">
+        <text class="tg {{kind === '全部' ? 'on' : ''}}" data-kind="全部" bindtap="pickKind">全部 {{count}}</text>
+        <text class="tg {{kind === item.k ? 'on' : ''}}" wx:for="{{kinds}}" wx:key="k" data-kind="{{item.k}}" bindtap="pickKind">{{item.k}} {{item.n}}</text>
+      </view>
+    </view>
+
+    <view class="res">
+      <view class="row" wx:for="{{list}}" wx:key="name" data-i="{{index}}" bindtap="tapRow">
+        <image class="rimg" wx:if="{{item.img}}" src="{{item.img}}" mode="aspectFill"></image>
+        <view class="rglyph" wx:else>{{item.glyph}}</view>
+        <view class="rb">
+          <view class="rn">{{item.name}}<text class="rk">{{item.kind}}</text></view>
+          <view class="rs">{{item.sub}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{empty}}">
+      <view class="e-t">没找到「{{q}}」</view>
+      <view class="e-s">试试：荔枝 / 第一滩 / 年例 / 化橘红</view>
+    </view>
+  </block>
+</view>
