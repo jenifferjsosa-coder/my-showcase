@@ -32,7 +32,25 @@ async function countLikes(commentId) {
   return res.total || 0
 }
 
+
+// ---------- 集合兜底：首次调用时自动建集合，避免控制台漏建导致 502005 ----------
+let __ensured = false
+async function ensureCollections () {
+  if (__ensured) return
+  const names = ['comments', 'comment_likes']
+  for (let i = 0; i < names.length; i++) {
+    try {
+      await db.createCollection(names[i])
+    } catch (e) {
+      // 已存在（-501001 / ResourceUnavailable.CollectionExists）直接忽略
+    }
+  }
+  __ensured = true
+}
+
 exports.main = async (event) => {
+  await ensureCollections()
+
   const { OPENID } = cloud.getWXContext()
 
   const commentId = String(event.commentId || '').trim()

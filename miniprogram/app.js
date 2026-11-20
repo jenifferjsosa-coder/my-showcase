@@ -13,11 +13,11 @@ App({
     if (!wx.getStorageSync(KEY)) wx.setStorageSync(KEY, this.blank());
 
     // ---------- 云开发初始化（评论模块依赖） ----------
-    // ENV_ID 换成自己的云开发环境 ID：微信开发者工具 → 云开发 → 设置 → 环境 ID
-    // 不写 env 会默认用“当前环境”，单环境项目可以直接留空
+    // 环境 ID：微信开发者工具 → 云开发 → 设置 → 环境 ID
+    // 换环境时只改这一处；不写 env 会默认用“当前环境”
     if (wx.cloud) {
       wx.cloud.init({
-        env: 'ENV_ID',
+        env: 'cloud1-d2gz0v75xf4962e09',
         traceUser: true
       });
     } else {
