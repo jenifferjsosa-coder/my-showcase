@@ -35,6 +35,6 @@ Page({
   },
 
   onShareAppMessage() {
-    return { title: '茂名品种图谱：荔枝 12 个品种、糖水 10 碗', path: '/pages/atlas/atlas' };
+    return { title: '品种图谱：荔枝 12 个品种、糖水 10 碗', path: '/pages/atlas/atlas' };
   }
 });

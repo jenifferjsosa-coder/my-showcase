@@ -9,7 +9,7 @@
     "es6": true,
     "enhance": true,
     "postcss": true,
-    "minified": false,
+    "minified": true,
     "newFeature": true,
     "bigPackageSizeSupport": true
   },
@@ -17,5 +17,6 @@
   "libVersion": "3.5.5",
   "appid": "wx1351b1df4ade28f9",
   "projectname": "haoxin-maoming",
-  "condition": {}
+  "condition": {},
+  "cloudfunctionRoot": "cloudfunctions/"
 }

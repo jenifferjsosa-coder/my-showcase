@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "评论测试",
+  "usingComponents": {
+    "comment-section": "/components/comment-section/index"
+  }
+}

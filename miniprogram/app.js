@@ -11,6 +11,18 @@ App({
 
   onLaunch() {
     if (!wx.getStorageSync(KEY)) wx.setStorageSync(KEY, this.blank());
+
+    // ---------- 云开发初始化（评论模块依赖） ----------
+    // ENV_ID 换成自己的云开发环境 ID：微信开发者工具 → 云开发 → 设置 → 环境 ID
+    // 不写 env 会默认用“当前环境”，单环境项目可以直接留空
+    if (wx.cloud) {
+      wx.cloud.init({
+        env: 'ENV_ID',
+        traceUser: true
+      });
+    } else {
+      console.warn('[app] 当前基础库不支持云开发，请把基础库调到 2.2.3 以上');
+    }
   },
 
   getState() {

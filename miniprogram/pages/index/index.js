@@ -77,5 +77,12 @@ Page({
       confirmText: '知道了',
       confirmColor: '#c0304a'
     });
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '什么时候熟、哪里好看：物产与去处的图文整理',
+      path: '/pages/index/index'
+    };
   }
 });

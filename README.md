@@ -101,3 +101,25 @@ miniprogram/ 是**原生小程序**工程，不是 web-view 外壳。
 页面：首页 / 好物 / 游玩 / 人文 / 我的（tabBar 五页）+ 品种图谱 / 详情 / 搜索（跳转页）。
 数据在 `miniprogram/utils/data.js`（从网页版 `app.js` 抽取），改文案先改网页版再重新生成。
 头像与简介文案见 [小程序资料.md](小程序资料.md)。
+
+## 评论模块（测试版，未接入正式页面）
+
+`miniprogram/` 里带一套微信云开发的评论模块，依附于已有内容（一条内容一组评论），**没有发帖入口、没有话题流、只做纯文本**。
+
+| 位置 | 内容 |
+| --- | --- |
+| `miniprogram/components/comment-section/` | 评论组件：列表（顶层 + 楼中楼）、输入 200 字、回复、点赞、删除、举报 |
+| `miniprogram/cloudfunctions/` | `listComments` / `submitComment` / `likeComment` / `deleteComment` 四个云函数 |
+| `miniprogram/pages/comment-demo/` | 测试页，不改正式页面就能验证全部功能 |
+| `miniprogram/database-rules/` | `comments`、`comment_likes`、`config`、`admins` 的安全规则 |
+| `miniprogram/docs/评论区部署说明.md` | 部署步骤、管理员开启、审核模式切换、接入详情页 |
+
+要点：
+
+- 发布评论走云函数，内部调 `security.msgSecCheck` 做内容安全校验，命中即拦截
+- 审核模式在 `config/commentSetting.auditMode` 里切：`after` 先发后审（默认）、`before` 先审后发
+- 点赞用 `comment_likes` 独立集合记 `openid + commentId`，配合唯一索引防重复
+- 删除：本人只能删自己的，管理员（`admins` 集合或云函数环境变量 `ADMINS`）可删任意
+- 客户端对这几个集合只读，写操作全部收归云函数
+
+部署前先把 `miniprogram/app.js` 里的 `ENV_ID` 换成自己的云开发环境 ID。

@@ -7,12 +7,13 @@
     "pages/me/me",
     "pages/atlas/atlas",
     "pages/detail/detail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/comment-demo/comment-demo"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#c0304a",
-    "navigationBarTitleText": "好心茂名 · 山海荔乡",
+    "navigationBarTitleText": "果子几时熟",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#fbf6ee"
   },
@@ -47,5 +48,6 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "renderer": "webview",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "cloud": true
 }
