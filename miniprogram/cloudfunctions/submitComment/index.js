@@ -101,6 +101,31 @@ exports.main = async (event) => {
 
   const { OPENID } = cloud.getWXContext()
 
+  // ---------- 0. 探针模式：只测内容安全接口通不通，不写库 ----------
+  // 云开发控制台 → 云函数 submitComment → 测试，入参 {"probe": true, "text": "测试一下"}
+  // 返回 pass:true 说明 msgSecCheck 权限正常；返回 code 48001/其他 说明接口没开通或参数不对
+  if (event && event.probe) {
+    const probeText = String(event.text || '今天天气不错，荔枝快熟了').slice(0, 200)
+    try {
+      const res = await cloud.openapi.security.msgSecCheck({
+        content: probeText,
+        version: 2,
+        scene: 2,
+        openid: OPENID
+      })
+      return { ok: true, probe: true, pass: true, errcode: res && res.errcode, raw: res }
+    } catch (err) {
+      return {
+        ok: true,
+        probe: true,
+        pass: false,
+        code: (err && (err.errCode || err.errcode)) || null,
+        errMsg: (err && (err.errMsg || err.message)) || String(err),
+        openid: OPENID || '(空)'
+      }
+    }
+  }
+
   const contentId = String(event.contentId || '').trim()
   const rawText = String(event.text || '')
   const text = rawText.trim()
