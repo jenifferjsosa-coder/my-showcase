@@ -2,7 +2,7 @@ const H = require('../../utils/helper.js');
 const app = getApp();
 
 Page({
-  data: { it: null, faved: false, kinds: [] },
+  data: { it: null, faved: false, kinds: [], cur: 0 },
 
   onLoad(opt) {
     const it = H.viewOf(H.findById(opt.id));
@@ -14,9 +14,14 @@ Page({
     const S = app.getState();
     this.setData({
       it: it,
+      cur: 0,
       kinds: it.kinds.map(function (k, i) { return { i: i + 1, n: k.n, t: k.t, d: k.d }; }),
       faved: (S.favs || []).indexOf(it.id) >= 0
     });
+  },
+
+  onSwipe(e) {
+    this.setData({ cur: e.detail.current });
   },
 
   toggleFav() {
@@ -35,8 +40,10 @@ Page({
     wx.showToast({ title: i >= 0 ? '已取消收藏' : '收藏 +2 分', icon: 'none' });
   },
 
-  preview() {
-    wx.previewImage({ urls: [this.data.it.big] });
+  preview(e) {
+    const i = Number((e && e.currentTarget && e.currentTarget.dataset.i) || 0);
+    const urls = this.data.it.imgs || [this.data.it.big];
+    wx.previewImage({ urls: urls, current: urls[i] });
   },
 
   onShareAppMessage() {

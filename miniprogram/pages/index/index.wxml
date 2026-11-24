@@ -150,6 +150,22 @@
     </view>
   </scroll-view>
 
+  <!-- 地图 -->
+  <view class="sec">
+    <text class="kicker">MAP</text>
+    <view class="sec-title">茂名在哪</view>
+    <view class="sec-sub">一张行政图看景点分布，一张地形图看山与海。</view>
+  </view>
+  <view class="pad">
+    <view class="mapcard" bindtap="goMap">
+      <image class="mapimg" src="{{mapImg}}" mode="widthFix"></image>
+      <view class="mapcap">
+        <view class="mapcap-t">地图上的茂名</view>
+        <view class="mapcap-s">五个区市 · 32 个景点 · 鉴江与礞石</view>
+      </view>
+    </view>
+  </view>
+
   <!-- 到达 -->
   <view class="sec">
     <text class="kicker">ARRIVE</text>
@@ -171,6 +187,6 @@
   <view class="note">
     <view>数据来自茂名市人民政府、广东省人民政府、广东省农业农村厅、南方日报、茂名发布等公开报道（2024—2026）。产量、面积等为对应年份口径，出行前请以官方最新公告为准。</view>
     <view class="mt8">照片来自公开网络，仅用于非商业展示。</view>
-    <view class="mt8">果子几时熟 v2.2</view>
+    <view class="mt8">果子几时熟 v2.3</view>
   </view>
 </view>

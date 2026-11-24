@@ -1,7 +1,11 @@
 <view class="page" wx:if="{{it}}">
-  <view class="cover" bindtap="preview">
-    <image class="cover-img" src="{{it.big}}" mode="aspectFill"></image>
-  </view>
+  <swiper class="cover" indicator-dots="{{it.imgCount > 1}}" indicator-color="rgba(255,255,255,.45)"
+          indicator-active-color="#ffffff" circular autoplay="{{false}}" bindchange="onSwipe">
+    <swiper-item wx:for="{{it.imgs}}" wx:key="*this">
+      <image class="cover-img" src="{{item}}" mode="aspectFill" bindtap="preview" data-i="{{index}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swipe-hint" wx:if="{{it.imgCount > 1}}">{{cur + 1}} / {{it.imgCount}} · 左右滑动看更多</view>
 
   <view class="body">
     <text class="kicker">{{it.area}}</text>
@@ -52,6 +56,8 @@
       <text class="tip-k">小提示</text>
       <text class="tip-v">{{it.tip}}</text>
     </view>
+
+    <comment-section id="cmt" content-id="{{it.id}}"></comment-section>
   </view>
 
   <view class="bar-bottom">

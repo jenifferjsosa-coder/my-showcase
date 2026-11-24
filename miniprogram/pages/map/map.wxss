@@ -1,0 +1,13 @@
+.page { padding: 24rpx 0 60rpx; }
+.h1 { font-size: 46rpx; color: #1d1917; margin-top: 8rpx; }
+.h-sub { font-size: 24rpx; color: #6b6058; line-height: 1.7; margin-top: 12rpx; }
+.mcard { background: #fffdf8; border-radius: 26rpx; overflow: hidden; box-shadow: 0 6rpx 22rpx rgba(29,25,23,.06); margin-bottom: 26rpx; }
+.mimg { width: 100%; display: block; background: #efe6da; }
+.mcap { padding: 22rpx 24rpx 26rpx; }
+.mt { font-size: 30rpx; color: #1d1917; font-family: "Songti SC", serif; }
+.ms { font-size: 22rpx; color: #8b8078; margin-top: 8rpx; line-height: 1.6; }
+.note { background: #fffdf8; border-radius: 26rpx; padding: 30rpx 26rpx; }
+.nt { font-size: 30rpx; color: #1d1917; font-family: "Songti SC", serif; margin-bottom: 14rpx; }
+.np { font-size: 25rpx; color: #4c433d; line-height: 1.85; margin-bottom: 14rpx; }
+.note-2 { font-size: 20rpx; color: #a29890; margin: 16rpx 0 28rpx; }
+.btn-row { display: flex; }

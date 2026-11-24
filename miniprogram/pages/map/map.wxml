@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="pad">
+    <text class="kicker">MAP</text>
+    <view class="h1 serif">地图上的茂名</view>
+    <view class="h-sub">茂名在广东西南、南海之滨：东接阳江，西邻湛江，北连云浮与广西，南面是 182 公里海岸线。</view>
+  </view>
+
+  <view class="pad" wx:for="{{maps}}" wx:key="key">
+    <view class="mcard" bindtap="preview" data-i="{{index}}">
+      <image class="mimg" src="{{item.img}}" mode="widthFix"></image>
+      <view class="mcap">
+        <view class="mt">{{item.t}}</view>
+        <view class="ms">{{item.s}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pad">
+    <view class="note">
+      <view class="nt">山与水的来处</view>
+      <view class="np">茂名北高南低：北边是云开大山与云雾山，中部丘陵，南边平原与海岸。鉴江从信宜出发，穿过高州、化州，最后在吴川入海——它是茂名的母亲河。</view>
+      <view class="np">化橘红之所以只认化州，一半原因在这条水里：化州一带的赤红壤富含礞石（一种矿物），礞石让橘红皮厚、油室密、苦味回甘。同样的苗，种到别处，橘红就不是这个味道。</view>
+      <view class="np">山、江、海三层，凑成了茂名的物产：山上荔枝三华李，江边橘红水稻，海里罗非鱼与海味。</view>
+    </view>
+    <view class="note-2">示意图 · 非比例尺，仅用于说明位置关系</view>
+    <view class="btn-row"><text class="btn-red" bindtap="goSpots">去看 32 个景点 ›</text></view>
+  </view>
+</view>

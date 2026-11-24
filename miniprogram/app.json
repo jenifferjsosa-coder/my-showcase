@@ -6,6 +6,7 @@
     "pages/culture/culture",
     "pages/me/me",
     "pages/atlas/atlas",
+    "pages/map/map",
     "pages/detail/detail",
     "pages/search/search",
     "pages/comment-demo/comment-demo"

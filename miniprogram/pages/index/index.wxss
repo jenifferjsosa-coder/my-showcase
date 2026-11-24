@@ -103,3 +103,9 @@
 .ar-k { display: block; font-size: 27rpx; }
 .ar-s { display: block; font-size: 21rpx; color: #8b8078; line-height: 1.6; }
 .ar-t { font-size: 23rpx; color: #c0304a; }
+
+.mapcard { background: #fffdf8; border-radius: 26rpx; overflow: hidden; box-shadow: 0 6rpx 22rpx rgba(29,25,23,.06); }
+.mapimg { width: 100%; display: block; background: #efe6da; }
+.mapcap { padding: 20rpx 24rpx 24rpx; }
+.mapcap-t { font-size: 30rpx; color: #1d1917; font-family: "Songti SC", serif; }
+.mapcap-s { font-size: 21rpx; color: #8b8078; margin-top: 6rpx; }

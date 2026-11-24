@@ -3,6 +3,7 @@ const app = getApp();
 
 Page({
   data: {
+    mapImg: H.base('assets/map/map-admin'),
     hero: H.base('assets/g-litchi'),
     stats: [
       { n: '141.92', u: '万亩', l: '荔枝种植面积' },
@@ -57,6 +58,10 @@ Page({
 
   goGoods() { wx.switchTab({ url: '/pages/goods/goods' }); },
   goSpots() { wx.switchTab({ url: '/pages/spots/spots' }); },
+  goMap() {
+    wx.navigateTo({ url: '/pages/map/map' });
+  },
+
   goSearch() { wx.navigateTo({ url: '/pages/search/search' }); },
   goAtlas() { wx.navigateTo({ url: '/pages/atlas/atlas' }); },
 
