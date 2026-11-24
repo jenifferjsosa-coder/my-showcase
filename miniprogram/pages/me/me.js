@@ -98,5 +98,9 @@ Page({
 
   goSearch() {
     wx.navigateTo({ url: '/pages/search/search' });
+  },
+
+  goCommentDemo() {
+    wx.navigateTo({ url: '/pages/comment-demo/comment-demo' });
   }
 });

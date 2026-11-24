@@ -35,3 +35,10 @@ page { background: #fbf6ee; }
 .ab-k { width: 130rpx; font-size: 22rpx; color: #8b8078; flex: 0 0 auto; }
 .ab-v { flex: 1; font-size: 22rpx; color: #514741; line-height: 1.6; }
 .danger { margin-top: 24rpx; text-align: center; font-size: 24rpx; color: #c0304a; padding: 24rpx; background: #fffdf8; border-radius: 22rpx; }
+
+
+.lab { margin-top: 24rpx; display: flex; align-items: center; justify-content: space-between; background: #fffdf8; border-radius: 22rpx; padding: 26rpx 24rpx; }
+.lab-b { flex: 1; }
+.lab-n { font-size: 28rpx; color: #1d1917; }
+.lab-s { font-size: 21rpx; color: #8b8078; margin-top: 6rpx; }
+.lab-a { font-size: 22rpx; color: #c0304a; }

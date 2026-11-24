@@ -68,7 +68,14 @@
     <view class="about">
       <view class="ab-row"><text class="ab-k">数据来源</text><text class="ab-v">茂名市人民政府、广东省农业农村厅、南方日报、茂名发布（2024—2026）</text></view>
       <view class="ab-row"><text class="ab-k">照片</text><text class="ab-v">公开网络，仅非商业展示；商用请替换授权素材</text></view>
-      <view class="ab-row"><text class="ab-k">版本</text><text class="ab-v">果子几时熟 v2.2</text></view>
+      <view class="ab-row"><text class="ab-k">版本</text><text class="ab-v">果子几时熟 v2.3</text></view>
+    </view>
+    <view class="lab" bindtap="goCommentDemo">
+      <view class="lab-b">
+        <view class="lab-n">评论区</view>
+        <view class="lab-s">测试版 · 依附在荔枝这条内容下</view>
+      </view>
+      <text class="lab-a">进入 ›</text>
     </view>
     <view class="danger" bindtap="reset">清空本机数据</view>
   </view>
