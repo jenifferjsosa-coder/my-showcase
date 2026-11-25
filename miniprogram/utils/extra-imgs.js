@@ -1,16 +1,13 @@
 // 由 _probe/gen_extra_imgs.js 生成：同一地点/同一道菜的第二、第三张照片
 module.exports = {
   "baiqie": [
-    "assets/f-baiqie-2",
-    "assets/f-baiqie-3",
-    "assets/f-baiqie-4"
+    "assets/f-baiqie-2"
   ],
   "banana": [
     "assets/g-banana-2"
   ],
   "bogecui": [
-    "assets/f-bogecui-2",
-    "assets/f-bogecui-3"
+    "assets/f-bogecui-2"
   ],
   "boghe": [
     "assets/s-boghe-2",
@@ -72,17 +69,14 @@ module.exports = {
     "assets/g-litchi-3"
   ],
   "niuzha": [
-    "assets/f-niuzha-2",
-    "assets/f-niuzha-3",
-    "assets/f-niuzha-4"
+    "assets/f-niuzha-2"
   ],
   "sanjhua": [
     "assets/g-sanjhua-2"
   ],
   "tangshui": [
     "assets/f-tangshui-2",
-    "assets/f-tangshui-3",
-    "assets/f-tangshui-4"
+    "assets/f-tangshui-3"
   ],
   "tilapia": [
     "assets/g-tilapia-2"
@@ -93,7 +87,6 @@ module.exports = {
   ],
   "yazhou": [
     "assets/f-yazhou-2",
-    "assets/f-yazhou-3",
     "assets/f-yazhou-4"
   ],
   "yushui": [
