@@ -6,8 +6,8 @@ Page({
   onLoad() {
     this.setData({
       maps: [
-        { key: 'admin', t: '茂名在哪 · 景点分布', s: '五个区市、32 个景点与公园，一键看清谁在哪儿', img: H.base('assets/map/map-admin'), full: H.base('assets/map/map-admin') },
-        { key: 'geo', t: '山与海 · 地形与交通', s: '北高南低：云开大山、云雾山在北，鉴江向南入海', img: H.base('assets/map/map-geo'), full: H.base('assets/map/map-geo') }
+        { key: 'admin', t: '茂名在哪 · 政区与路网', s: '五个区市、沈海\u002f包茂\u002f汕湛高速与主要景点，一图看清位置', img: H.base('assets/map/map-admin'), full: H.base('assets/map/map-admin') },
+        { key: 'geo', t: '山与海 · 卫星影像', s: '北边是山、中间是江、南边是海\u2014\u2014同一片土地的三层', img: H.base('assets/map/map-geo'), full: H.base('assets/map/map-geo') }
       ]
     });
   },
