@@ -24,6 +24,11 @@ Page({
     this.setData({ cur: e.detail.current });
   },
 
+  jumpTo(e) {
+    const i = Number(e.currentTarget.dataset.i || 0);
+    this.setData({ cur: i });
+  },
+
   toggleFav() {
     const S = app.getState();
     S.favs = S.favs || [];

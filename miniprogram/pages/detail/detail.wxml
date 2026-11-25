@@ -1,11 +1,16 @@
 <view class="page" wx:if="{{it}}">
-  <swiper class="cover" indicator-dots="{{it.imgCount > 1}}" indicator-color="rgba(255,255,255,.45)"
+  <swiper class="cover" current="{{cur}}" indicator-dots="{{it.imgCount > 1}}" indicator-color="rgba(255,255,255,.45)"
           indicator-active-color="#ffffff" circular autoplay="{{false}}" bindchange="onSwipe">
     <swiper-item wx:for="{{it.imgs}}" wx:key="*this">
       <image lazy-load="{{true}}" class="cover-img" src="{{item}}" mode="aspectFill" bindtap="preview" data-i="{{index}}"></image>
     </swiper-item>
   </swiper>
-  <view class="swipe-hint" wx:if="{{it.imgCount > 1}}">{{cur + 1}} / {{it.imgCount}} · 左右滑动看更多</view>
+  <view class="swipe-hint" wx:if="{{it.imgCount > 1}}">{{cur + 1}} / {{it.imgCount}} · 左右滑动看更多，点图放大</view>
+  <scroll-view class="thumbs" scroll-x="{{true}}" wx:if="{{it.imgCount > 1}}">
+    <view class="thumb {{index === cur ? 'on' : ''}}" wx:for="{{it.imgs}}" wx:key="*this" bindtap="jumpTo" data-i="{{index}}">
+      <image lazy-load="{{true}}" class="thumb-img" src="{{item}}" mode="aspectFill"></image>
+    </view>
+  </scroll-view>
 
   <view class="body">
     <text class="kicker">{{it.area}}</text>
