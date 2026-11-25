@@ -1,0 +1,137 @@
+<!-- 评论区组件：只做“内容下的评论”，没有发帖入口 -->
+<view class="cm">
+
+  <!-- ===== 标题 ===== -->
+  <view class="cm-head">
+    <text class="cm-title serif">评论</text>
+    <text class="cm-count" wx:if="{{total > 0}}">{{total}}</text>
+  </view>
+
+  <!-- ===== 输入区（顶部内联，避免和详情页底部操作栏打架） ===== -->
+  <view class="cm-editor">
+    <view class="cm-editor-row">
+      <view class="cm-avatar">
+        <image wx:if="{{myInfo.avatarUrl}}" src="{{myInfo.avatarUrl}}" mode="aspectFill" class="cm-avatar-img" />
+        <text wx:else class="cm-avatar-txt">{{myInfo.initial}}</text>
+      </view>
+
+      <view class="cm-input-wrap">
+        <textarea
+          class="cm-input"
+          value="{{draft}}"
+          placeholder="{{replyTo ? '回复 @' + replyTo.nickName : '说点什么…'}}"
+          placeholder-class="cm-ph"
+          maxlength="{{maxLength}}"
+          auto-height
+          show-confirm-bar="{{false}}"
+          cursor-spacing="24"
+          adjust-position
+          focus="{{inputFocus}}"
+          bindinput="onInput"
+          bindfocus="onFocus"
+          bindblur="onBlur"
+        />
+        <view class="cm-counter {{draftLen >= maxLength ? 'is-max' : ''}}">{{draftLen}}/{{maxLength}}</view>
+      </view>
+    </view>
+
+    <!-- 回复某条评论时出现 -->
+    <view class="cm-replying" wx:if="{{replyTo}}">
+      <text class="cm-replying-txt">正在回复 {{replyTo.nickName}}</text>
+      <text class="cm-replying-cancel" bindtap="cancelReply">取消</text>
+    </view>
+
+    <view class="cm-editor-foot">
+      <text class="cm-tip">纯文本评论，不支持图片</text>
+      <button
+        class="cm-submit"
+        size="mini"
+        loading="{{submitting}}"
+        disabled="{{submitting || !draftLen}}"
+        bindtap="submit"
+      >{{replyTo ? '回复' : '发布'}}</button>
+    </view>
+  </view>
+
+  <!-- ===== 列表 ===== -->
+  <view class="cm-list" wx:if="{{list.length}}">
+    <view class="cm-item" wx:for="{{list}}" wx:key="_id" wx:for-item="item">
+
+      <!-- 顶层评论 -->
+      <view class="cm-row">
+        <view class="cm-avatar">
+          <image wx:if="{{item.avatarUrl}}" src="{{item.avatarUrl}}" mode="aspectFill" class="cm-avatar-img" />
+          <text wx:else class="cm-avatar-txt">{{item.initial}}</text>
+        </view>
+
+        <view class="cm-main">
+          <view class="cm-meta">
+            <text class="cm-nick">{{item.nickName}}</text>
+            <text class="cm-mine" wx:if="{{item.isMine}}">我</text>
+            <text class="cm-time">{{item.timeText}}</text>
+          </view>
+
+          <view class="cm-text">{{item.text}}</view>
+
+          <view class="cm-actions">
+            <view class="cm-act" bindtap="onReplyTap" data-id="{{item._id}}" data-openid="{{item.openid}}" data-nick="{{item.nickName}}">
+              <text class="cm-act-txt">回复</text>
+            </view>
+            <view class="cm-act {{item.liked ? 'is-liked' : ''}}" bindtap="onLikeTap" data-id="{{item._id}}">
+              <text class="cm-act-ico">{{item.liked ? '♥' : '♡'}}</text>
+              <text class="cm-act-txt">{{item.likeCount || '赞'}}</text>
+            </view>
+            <view class="cm-act" bindtap="onReportTap" data-id="{{item._id}}">
+              <text class="cm-act-txt">举报</text>
+            </view>
+            <view class="cm-act cm-act-del" wx:if="{{item.isMine || isAdmin}}" bindtap="onDeleteTap" data-id="{{item._id}}">
+              <text class="cm-act-txt">删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 楼中楼：子回复 -->
+      <view class="cm-children" wx:if="{{item.children.length}}">
+        <view class="cm-child" wx:for="{{item.children}}" wx:key="_id" wx:for-item="child">
+          <view class="cm-child-line">
+            <text class="cm-nick sm">{{child.nickName}}</text>
+            <text class="cm-reply-to" wx:if="{{child.replyToNick}}">回复 {{child.replyToNick}}</text>
+            <text class="cm-text sm">{{child.text}}</text>
+          </view>
+          <view class="cm-child-foot">
+            <text class="cm-time">{{child.timeText}}</text>
+            <view class="cm-act sm" bindtap="onReplyTap" data-id="{{item._id}}" data-openid="{{child.openid}}" data-nick="{{child.nickName}}">
+              <text class="cm-act-txt">回复</text>
+            </view>
+            <view class="cm-act sm {{child.liked ? 'is-liked' : ''}}" bindtap="onLikeTap" data-id="{{child._id}}">
+              <text class="cm-act-ico">{{child.liked ? '♥' : '♡'}}</text>
+              <text class="cm-act-txt">{{child.likeCount || '赞'}}</text>
+            </view>
+            <view class="cm-act sm" bindtap="onReportTap" data-id="{{child._id}}">
+              <text class="cm-act-txt">举报</text>
+            </view>
+            <view class="cm-act sm cm-act-del" wx:if="{{child.isMine || isAdmin}}" bindtap="onDeleteTap" data-id="{{child._id}}" data-parent="{{item._id}}">
+              <text class="cm-act-txt">删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 空态 / 加载 / 更多 ===== -->
+  <view class="cm-empty" wx:if="{{!list.length && !loading}}">
+    <text class="cm-empty-t">还没有评论</text>
+    <text class="cm-empty-s">来说第一句吧</text>
+  </view>
+
+  <view class="cm-loading" wx:if="{{loading}}">加载中…</view>
+
+  <view class="cm-more" wx:if="{{hasMore && !loading}}" bindtap="loadMore">
+    <text>加载更多</text>
+  </view>
+
+  <view class="cm-end" wx:if="{{!hasMore && list.length > 5}}">没有更多了</view>
+
+</view>

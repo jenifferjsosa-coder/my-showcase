@@ -1,0 +1,35 @@
+<view class="page">
+  <view class="head">
+    <text class="kicker">ATLAS</text>
+    <view class="h1 serif">品种图谱</view>
+    <view class="hsub">同样是荔枝，二月到九月能吃到十二个品种；同样一碗糖水，化州人能卖出十种。这里把“种类”摊开看。</view>
+  </view>
+
+  <scroll-view class="nav" scroll-x="true" enable-flex="true">
+    <view class="nav-in">
+      <view class="nchip {{cur === item.id ? 'on' : ''}}" wx:for="{{nav}}" wx:key="id" bindtap="jump" data-id="{{item.id}}">{{item.name}} {{item.count}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="pad">
+    <view class="grp" wx:for="{{groups}}" wx:key="id" id="a-{{item.id}}">
+      <text class="g-kicker">{{item.kicker}}</text>
+      <view class="g-h">
+        <text class="g-name serif">{{item.name}}</text>
+        <text class="g-unit">{{item.kinds.length}} {{item.unit}}</text>
+      </view>
+      <view class="g-sub">{{item.sub}}</view>
+      <view class="kl">
+        <view class="k" wx:for="{{item.kinds}}" wx:for-item="k" wx:key="n">
+          <text class="kid">{{k.i}}</text>
+          <view class="kb">
+            <view class="kn"><text class="kname">{{k.n}}</text><text class="kt">{{k.t}}</text></view>
+            <view class="kd">{{k.d}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="note">品种时令为常年经验值，当年气候会影响 1—2 周。</view>
+</view>

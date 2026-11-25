@@ -1,0 +1,5 @@
+{
+  "_id": "commentSetting",
+  "auditMode": "after",
+  "_note": "auditMode = 'after' 先发后审（isPass 直接 true，评论立刻显示）；'before' 先审后发（isPass 为 false，需管理员在控制台把 isPass 改成 true 才会出现）"
+}

@@ -1,0 +1,209 @@
+<view class="page">
+  <!-- 封面 -->
+  <view class="hero">
+    <image lazy-load="{{true}}" class="hero-img" src="{{hero}}" mode="aspectFill"></image>
+    <view class="hero-mask"></view>
+    <view class="hero-top">
+      <text class="brand">广东 · 茂名</text>
+    </view>
+    <view class="hero-copy">
+      <text class="hero-k">山 海 荔 乡</text>
+      <text class="hero-t">果子几时熟</text>
+      <view class="hero-d">
+        <text class="line">世界每五颗荔枝，就有一颗来自茂名。</text>
+        <text class="line">182 公里海岸线，两千年的荔园，一句“唯用一好心”。</text>
+      </view>
+      <view class="hero-btns">
+        <text class="btn-red" bindtap="goGoods">逛好物 ›</text>
+        <text class="btn-ghost" bindtap="goSpots">去看海</text>
+        <text class="btn-ghost" bindtap="goSearch">搜一搜</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数字 -->
+  <view class="stats lift">
+    <view class="st" wx:for="{{stats}}" wx:key="l">
+      <view><text class="n">{{item.n}}</text><text class="u">{{item.u}}</text></view>
+      <view class="l">{{item.l}}</view>
+    </view>
+  </view>
+
+  <!-- 山与海 -->
+  <view class="pad">
+    <view class="geo-band" bindtap="goMap">
+      <view class="gb-h">
+        <text class="gb-k">LAND &amp; SEA</text>
+        <text class="gb-t serif">山与海</text>
+      </view>
+      <view class="gb-row">
+        <view class="gb-i"><text class="gb-v">1704</text><text class="gb-u">米</text><text class="gb-l">大田顶</text></view>
+        <view class="gb-i"><text class="gb-v">232</text><text class="gb-u">公里</text><text class="gb-l">鉴江</text></view>
+        <view class="gb-i"><text class="gb-v">182</text><text class="gb-u">公里</text><text class="gb-l">海岸线</text></view>
+      </view>
+      <view class="gb-d">北边云开大山，中间鉴江穿城入海，南边是南海。山、江、海三层，凑成了荔枝、橘红与海味。</view>
+      <view class="gb-more">看地图 ›</view>
+    </view>
+  </view>
+
+  <!-- 产业矩阵 -->
+  <view class="pad">
+    <view class="industry">
+      <text class="ind-k">特 色 产 业 矩 阵</text>
+      <view class="ind-t serif">五棵树 · 一条鱼 · 一桌菜</view>
+      <view class="ind-n"><text class="num">{{ind.n}}</text><text class="unit">{{ind.u}}</text></view>
+      <view class="ind-d">特色产业链产值，带动近 60 万农民。农业总产值连续五年稳居千亿元高位。</view>
+      <view class="ind-chips">
+        <text class="ind-chip" wx:for="{{indChips}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 品种图谱入口 -->
+  <view class="pad">
+    <view class="atlas-band" bindtap="goAtlas">
+      <view class="ab-l">
+        <text class="ab-k">ATLAS</text>
+        <text class="ab-t serif">品种图谱</text>
+        <text class="ab-s">荔枝 12 个品种 · 化州糖水 10 碗 · 博贺海味 8 样 · 籺 6 种 · 高凉菜 8 道</text>
+      </view>
+      <text class="ab-go">›</text>
+    </view>
+  </view>
+
+  <!-- 今日一物 -->
+  <view class="sec">
+    <view class="sec-top">
+      <view>
+        <text class="kicker">TODAY</text>
+        <view class="sec-title">今日一物</view>
+      </view>
+      <text class="more" bindtap="goGoods">全部 ›</text>
+    </view>
+  </view>
+  <view class="pad">
+    <view class="today" bindtap="openItem" data-id="{{today.id}}">
+      <image lazy-load="{{true}}" class="today-img" src="{{today.big}}" mode="aspectFill"></image>
+      <view class="today-mask"></view>
+      <view class="today-in">
+        <text class="today-k">{{today.area}}</text>
+        <view class="today-t serif">{{today.name}}</view>
+        <view class="today-d">{{today.line}}</view>
+        <view class="today-f"><text class="today-num">{{today.tag}}</text><text class="today-btn">看详情 ›</text></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 四季时令 -->
+  <view class="sec">
+    <text class="kicker">SEASON</text>
+    <view class="sec-title">四季时令</view>
+    <view class="sec-sub">什么时候来，吃到什么、看到什么。</view>
+  </view>
+  <view class="pad">
+    <view class="months">
+      <view class="mchip {{monthSel === index ? 'on' : ''}}" wx:for="{{months}}" wx:key="m" bindtap="pickMonth" data-i="{{index}}">{{item.m}}月</view>
+    </view>
+    <view class="mtip">
+      <text class="mtip-k">{{months[monthSel].m}}月</text>
+      <text class="mtip-t">{{monthTip}}</text>
+      <text class="mtip-s">{{months[monthSel].items}}</text>
+    </view>
+  </view>
+
+  <!-- 必去打卡 -->
+  <view class="sec">
+    <view class="sec-top">
+      <view>
+        <text class="kicker">SPOTS</text>
+        <view class="sec-title">必去打卡</view>
+      </view>
+      <text class="more" bindtap="goSpots">全部 ›</text>
+    </view>
+    <view class="sec-sub">山海城村，四种走法。</view>
+  </view>
+  <scroll-view class="hscroll pad" scroll-x="true" enable-flex="true">
+    <view class="hitem card" wx:for="{{spots}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
+      <image lazy-load="{{true}}" class="sp-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="sp-b">
+        <view class="sp-n">{{item.name}}</view>
+        <view class="sp-a">{{item.area}} · {{item.tag}}</view>
+        <view class="sp-l">{{item.line}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 一桌菜 -->
+  <view class="sec">
+    <text class="kicker">TASTE</text>
+    <view class="sec-title">一桌菜的茂名</view>
+    <view class="sec-sub">从早餐到宵夜，256G 的胃都不够。</view>
+  </view>
+  <scroll-view class="hscroll pad" scroll-x="true" enable-flex="true">
+    <view class="hitem food" wx:for="{{foods}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
+      <image lazy-load="{{true}}" class="fd-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="fd-n">{{item.name}}</view>
+      <view class="fd-a">{{item.area}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 路线 -->
+  <view class="sec">
+    <text class="kicker">ROUTE</text>
+    <view class="sec-title">三条线，安排好了</view>
+    <view class="sec-sub">两天看海、一天吃荔、三天进山。</view>
+  </view>
+  <scroll-view class="hscroll pad" scroll-x="true" enable-flex="true">
+    <view class="hitem route" wx:for="{{routes}}" wx:key="id" bindtap="openRoute" data-i="{{index}}">
+      <view class="rt-top">
+        <text class="rt-days">{{item.days}}</text>
+        <view class="rt-name serif">{{item.name}}</view>
+        <view class="rt-area">{{item.area}}</view>
+      </view>
+      <view class="rt-steps">
+        <view class="rt-step" wx:for="{{item.steps}}" wx:for-item="s" wx:key="*this">{{s}}</view>
+      </view>
+      <view class="rt-time">{{item.time}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 地图 -->
+  <view class="sec">
+    <text class="kicker">MAP</text>
+    <view class="sec-title">茂名在哪</view>
+    <view class="sec-sub">一张行政图看景点分布，一张地形图看山与海。</view>
+  </view>
+  <view class="pad">
+    <view class="mapcard" bindtap="goMap">
+      <image lazy-load="{{true}}" class="mapimg" src="{{mapImg}}" mode="widthFix"></image>
+      <view class="mapcap">
+        <view class="mapcap-t">地图上的茂名</view>
+        <view class="mapcap-s">五个区市 · 32 个景点 · 鉴江与礞石</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 到达 -->
+  <view class="sec">
+    <text class="kicker">ARRIVE</text>
+    <view class="sec-title">怎么到茂名</view>
+    <view class="sec-sub">高铁、机场、自驾，都在一小时级。</view>
+  </view>
+  <view class="pad">
+    <view class="arrive">
+      <view class="ar-row" wx:for="{{arrive}}" wx:key="b">
+        <view class="ar-b">
+          <text class="ar-k">{{item.b}}</text>
+          <text class="ar-s">{{item.s}}</text>
+        </view>
+        <text class="ar-t">{{item.t}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="note">
+    <view>数据来自茂名市人民政府、广东省人民政府、广东省农业农村厅、南方日报、茂名发布等公开报道（2024—2026）。产量、面积等为对应年份口径，出行前请以官方最新公告为准。</view>
+    <view class="mt8">照片来自公开网络，仅用于非商业展示。</view>
+    <view class="mt8">果子几时熟 v2.3</view>
+  </view>
+</view>

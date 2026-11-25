@@ -1,0 +1,335 @@
+/* 评论区样式：跟站内既有令牌保持一致（纸色底、朱红主色），不引入新颜色 */
+.cm {
+  padding: 8rpx 0 24rpx;
+}
+
+.cm-head {
+  display: flex;
+  align-items: baseline;
+  padding: 8rpx 4rpx 16rpx;
+}
+
+.cm-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2a1a16;
+  letter-spacing: 1rpx;
+}
+
+.cm-count {
+  margin-left: 10rpx;
+  font-size: 22rpx;
+  color: #9a8b83;
+}
+
+/* ---------- 输入区 ---------- */
+.cm-editor {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-shadow: 0 6rpx 20rpx rgba(60, 32, 24, 0.06);
+  margin-bottom: 24rpx;
+}
+
+.cm-editor-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cm-avatar {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: #f3e7df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.cm-avatar-img {
+  width: 100%;
+  height: 100%;
+}
+
+.cm-avatar-txt {
+  font-size: 24rpx;
+  color: #b3261e;
+  font-weight: 600;
+}
+
+.cm-input-wrap {
+  flex: 1 1 auto;
+  margin-left: 16rpx;
+  background: #fbf6ee;
+  border-radius: 16rpx;
+  padding: 16rpx 18rpx 8rpx;
+  min-height: 96rpx;
+}
+
+.cm-input {
+  width: 100%;
+  font-size: 27rpx;
+  line-height: 1.6;
+  color: #2a1a16;
+  min-height: 60rpx;
+}
+
+.cm-ph {
+  color: #b5a79f;
+}
+
+.cm-counter {
+  text-align: right;
+  font-size: 20rpx;
+  color: #b5a79f;
+  padding-top: 4rpx;
+}
+
+.cm-counter.is-max {
+  color: #b3261e;
+}
+
+.cm-replying {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12rpx;
+  padding: 10rpx 16rpx;
+  background: #f7efe7;
+  border-radius: 12rpx;
+}
+
+.cm-replying-txt {
+  font-size: 23rpx;
+  color: #7a6a62;
+}
+
+.cm-replying-cancel {
+  font-size: 23rpx;
+  color: #b3261e;
+}
+
+.cm-editor-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14rpx;
+}
+
+.cm-tip {
+  font-size: 21rpx;
+  color: #b5a79f;
+}
+
+.cm-submit {
+  margin: 0;
+  padding: 0 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 25rpx;
+  border-radius: 30rpx;
+  color: #fff;
+  background: #b3261e;
+  border: none;
+}
+
+.cm-submit[disabled] {
+  background: #e3c9c4;
+  color: #fff;
+}
+
+/* ---------- 列表 ---------- */
+.cm-item {
+  padding: 22rpx 4rpx;
+  border-bottom: 1rpx solid #f0e6dd;
+}
+
+.cm-item:last-child {
+  border-bottom: none;
+}
+
+.cm-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cm-main {
+  flex: 1 1 auto;
+  margin-left: 16rpx;
+  min-width: 0;
+}
+
+.cm-meta {
+  display: flex;
+  align-items: center;
+}
+
+.cm-nick {
+  font-size: 25rpx;
+  color: #43302a;
+  font-weight: 600;
+  max-width: 320rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cm-nick.sm {
+  font-size: 24rpx;
+}
+
+.cm-mine {
+  margin-left: 10rpx;
+  padding: 0 8rpx;
+  font-size: 19rpx;
+  line-height: 30rpx;
+  color: #b3261e;
+  background: #fbe9e6;
+  border-radius: 6rpx;
+}
+
+.cm-time {
+  margin-left: auto;
+  font-size: 21rpx;
+  color: #b5a79f;
+}
+
+.cm-text {
+  margin-top: 8rpx;
+  font-size: 27rpx;
+  line-height: 1.68;
+  color: #2a1a16;
+  word-break: break-word;
+}
+
+.cm-text.sm {
+  display: inline;
+  margin-top: 0;
+  font-size: 25rpx;
+  line-height: 1.6;
+  color: #4a3a33;
+}
+
+/* ---------- 操作条 ---------- */
+.cm-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.cm-act {
+  display: flex;
+  align-items: center;
+  margin-right: 34rpx;
+  padding: 6rpx 0;
+}
+
+.cm-act.sm {
+  margin-right: 26rpx;
+}
+
+.cm-act-ico {
+  font-size: 26rpx;
+  color: #b5a79f;
+  margin-right: 6rpx;
+}
+
+.cm-act-txt {
+  font-size: 22rpx;
+  color: #8b7a72;
+}
+
+.cm-act.is-liked .cm-act-ico,
+.cm-act.is-liked .cm-act-txt {
+  color: #b3261e;
+}
+
+.cm-act-del .cm-act-txt {
+  color: #a89a93;
+}
+
+/* ---------- 楼中楼 ---------- */
+.cm-children {
+  margin: 16rpx 0 0 72rpx;
+  padding: 6rpx 16rpx 10rpx;
+  background: #fbf6ee;
+  border-radius: 14rpx;
+}
+
+.cm-child {
+  padding: 12rpx 0;
+  border-bottom: 1rpx dashed #ece0d4;
+}
+
+.cm-child:last-child {
+  border-bottom: none;
+}
+
+.cm-child-line {
+  font-size: 25rpx;
+  line-height: 1.6;
+}
+
+.cm-reply-to {
+  font-size: 23rpx;
+  color: #9a8b83;
+  margin: 0 8rpx;
+}
+
+.cm-child-foot {
+  display: flex;
+  align-items: center;
+  margin-top: 6rpx;
+}
+
+.cm-child-foot .cm-time {
+  margin-left: 0;
+  margin-right: 26rpx;
+}
+
+/* ---------- 空态与加载 ---------- */
+.cm-empty {
+  padding: 70rpx 0 60rpx;
+  text-align: center;
+}
+
+.cm-empty-t {
+  display: block;
+  font-size: 27rpx;
+  color: #6b5a52;
+}
+
+.cm-empty-s {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 23rpx;
+  color: #b5a79f;
+}
+
+.cm-loading {
+  padding: 28rpx 0;
+  text-align: center;
+  font-size: 23rpx;
+  color: #b5a79f;
+}
+
+.cm-more {
+  margin: 20rpx auto 0;
+  width: 240rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #b3261e;
+  border: 1rpx solid #e8d8cd;
+  border-radius: 33rpx;
+}
+
+.cm-end {
+  padding: 30rpx 0 10rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #c2b4ac;
+}

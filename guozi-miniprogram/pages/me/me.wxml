@@ -1,0 +1,82 @@
+<view class="page">
+  <view class="head">
+    <text class="kicker">MY</text>
+    <view class="h1 serif">我的</view>
+  </view>
+
+  <view class="pad">
+    <view class="profile">
+      <view class="pf-top">
+        <view class="pf-avatar serif">茂</view>
+        <view class="pf-b">
+          <view class="pf-n">{{nick || '还没有登录'}}</view>
+          <view class="pf-s">{{nick ? '签到 ' + score + ' 分 · ' + level : '起个名字，收藏和积分存在本机'}}</view>
+        </view>
+      </view>
+      <view class="pf-row" wx:if="{{!nick}}">
+        <input class="pf-in" value="{{input}}" placeholder="输入昵称，例如：阿茂" bindinput="onInput" placeholder-class="ph" />
+        <text class="btn-red sm" bindtap="doLogin">开始</text>
+      </view>
+      <view class="pf-next" wx:if="{{nick}}">距离「{{next}}」还差一点积分</view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <text class="kicker">DAILY</text>
+    <view class="sec-title">每日打卡</view>
+    <view class="sec-sub">打卡得 10 积分。</view>
+  </view>
+  <view class="pad">
+    <view class="sign">
+      <view class="sg-b">
+        <view class="sg-n">{{signed ? '今天已打卡' : '签到'}}</view>
+        <view class="sg-s">{{signed ? '明天再来，' : '点一下，'}}{{score}} 分</view>
+      </view>
+      <text class="btn-red sm {{signed ? 'off' : ''}}" bindtap="signin">{{signed ? '已签' : '签到'}}</text>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-top">
+      <view>
+        <text class="kicker">FAV</text>
+        <view class="sec-title">我的收藏</view>
+      </view>
+      <text class="more" bindtap="goSearch">去搜索 ›</text>
+    </view>
+  </view>
+  <view class="pad">
+    <view class="empty" wx:if="{{count === 0}}">
+      <view class="em-i">♡</view>
+      <view class="em-t">收藏的荔枝、景点、路线和故事会出现在这里</view>
+    </view>
+    <view class="fav" wx:for="{{favs}}" wx:key="id">
+      <image lazy-load="{{true}}" class="fav-img" src="{{item.img}}" mode="aspectFill" bindtap="openItem" data-id="{{item.id}}"></image>
+      <view class="fav-b" bindtap="openItem" data-id="{{item.id}}">
+        <view class="fav-n">{{item.name}}</view>
+        <view class="fav-a">{{item.area}} · {{item.tag}}</view>
+      </view>
+      <text class="fav-del" bindtap="unfav" data-id="{{item.id}}">移除</text>
+    </view>
+  </view>
+
+  <view class="sec">
+    <text class="kicker">ABOUT</text>
+    <view class="sec-title">关于</view>
+  </view>
+  <view class="pad">
+    <view class="about">
+      <view class="ab-row"><text class="ab-k">数据来源</text><text class="ab-v">茂名市人民政府、广东省农业农村厅、南方日报、茂名发布（2024—2026）</text></view>
+      <view class="ab-row"><text class="ab-k">照片</text><text class="ab-v">公开网络，仅非商业展示；商用请替换授权素材</text></view>
+      <view class="ab-row"><text class="ab-k">版本</text><text class="ab-v">果子几时熟 v2.3</text></view>
+    </view>
+    <view class="lab" bindtap="goCommentDemo">
+      <view class="lab-b">
+        <view class="lab-n">评论区</view>
+        <view class="lab-s">测试版 · 依附在荔枝这条内容下</view>
+      </view>
+      <text class="lab-a">进入 ›</text>
+    </view>
+    <view class="danger" bindtap="reset">清空本机数据</view>
+  </view>
+</view>

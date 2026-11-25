@@ -1,0 +1,5 @@
+{
+  "_说明": "config 集合：只放一条 _id = commentSetting 的文档，用于切换审核模式。前端不需要读它（云函数里读），所以对客户端完全关闭。",
+  "read": false,
+  "write": false
+}

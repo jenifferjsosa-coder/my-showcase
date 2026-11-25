@@ -1,0 +1,122 @@
+<view class="page">
+  <view class="head">
+    <text class="kicker">CULTURE</text>
+    <view class="h1 serif">好心之城</view>
+    <view class="hsub">“我事三代主，唯用一好心。”冼夫人留下的一句话，成了茂名的城市精神；年例、木偶戏、跳花棚、飘色，把它演成了活着的日常。</view>
+  </view>
+
+  <!-- 山与海 -->
+  <view class="sec">
+    <text class="kicker">LAND &amp; SEA</text>
+    <view class="sec-title">山与海</view>
+    <view class="sec-sub">茂名的物产，其实是地形写好的答案。</view>
+  </view>
+  <view class="pad">
+    <view class="geo">
+      <view class="geo-row">
+        <view class="geo-n"><text class="geo-v">1704</text><text class="geo-u">米</text></view>
+        <view class="geo-b">
+          <view class="geo-t">北边是山</view>
+          <view class="geo-d">云开大山与云雾山横在信宜、高州北部，最高点大田顶 1704 米；全市最低点只有 1.6 米，都在茂名境内。</view>
+        </view>
+      </view>
+      <view class="geo-row">
+        <view class="geo-n"><text class="geo-v">232</text><text class="geo-u">公里</text></view>
+        <view class="geo-b">
+          <view class="geo-t">中间是江</view>
+          <view class="geo-d">鉴江是粤西最大的河流，也是茂名人的母亲河：源出信宜东镇虎豹坑，穿高州、化州，在吴川沙角旋入海，流域 9464 平方公里。</view>
+        </view>
+      </view>
+      <view class="geo-row">
+        <view class="geo-n"><text class="geo-v">182</text><text class="geo-u">公里</text></view>
+        <view class="geo-b">
+          <view class="geo-t">南边是海</view>
+          <view class="geo-d">海岸线从电白一路铺到博贺、放鸡岛；水东湾、博贺湾是典型的沙坝潟湖海岸，也养出了广东最大的渔港。</view>
+        </view>
+      </view>
+      <view class="geo-sum">一层山、一层丘陵、一层平原——山上荔枝三华李，江边化橘红与水稻，海里罗非鱼与海味。这就是“五棵树一条鱼一桌菜”的地理来处。</view>
+      <view class="geo-src">数据来源：广东省情网《鉴江》、茂名市人民政府、广东省生态环境厅</view>
+    </view>
+  </view>
+
+  <!-- 时间轴 -->
+  <view class="sec">
+    <text class="kicker">TIME</text>
+    <view class="sec-title">时间轴</view>
+  </view>
+  <view class="pad">
+    <view class="tl">
+      <view class="tl-row" wx:for="{{timeline}}" wx:key="y">
+        <view class="tl-dot"><view class="tl-pin"></view></view>
+        <view class="tl-b">
+          <text class="tl-y">{{item.y}}</text>
+          <view class="tl-t serif">{{item.t}}</view>
+          <view class="tl-d">{{item.d}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 非遗 -->
+  <view class="sec">
+    <text class="kicker">HERITAGE</text>
+    <view class="sec-title">非遗的脸</view>
+    <view class="sec-sub">六张照片，六种活着的传统。</view>
+  </view>
+  <view class="pad">
+    <view class="hs">
+      <view class="hcard" wx:for="{{heritage}}" wx:key="id">
+        <image lazy-load="{{true}}" class="h-img" src="{{item.img}}" mode="aspectFill"></image>
+        <view class="h-b">
+          <view class="h-n">{{item.n}}</view>
+          <view class="h-s">{{item.s}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 故事 -->
+  <view class="sec">
+    <text class="kicker">STORY</text>
+    <view class="sec-title">六个人的茂名</view>
+  </view>
+  <view class="list">
+    <view class="row card" wx:for="{{stories}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
+      <image lazy-load="{{true}}" class="row-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="row-b">
+        <view class="row-n">{{item.name}}</view>
+        <view class="row-a">{{item.area}} · {{item.tag}}</view>
+        <view class="row-l">{{item.line}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 方言 -->
+  <view class="sec">
+    <text class="kicker">DIALECT</text>
+    <view class="sec-title">几句茂名话</view>
+    <view class="sec-sub">听懂这几句，菜市场就不会吃亏。</view>
+  </view>
+  <view class="pad">
+    <view class="dial">
+      <view class="dcell" wx:for="{{dialect}}" wx:key="k">
+        <view class="dk serif">{{item.k}}</view>
+        <view class="dv">{{item.v}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 夜色 -->
+  <view class="pad">
+    <view class="night">
+      <image lazy-load="{{true}}" class="night-img" src="{{night}}" mode="aspectFill"></image>
+      <view class="night-mask"></view>
+      <view class="night-cap">
+        <view class="nc-t serif">夜里的油城</view>
+        <view class="nc-s">灯一盏盏亮起来，茂名才慢慢安静下来。</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="note">年例时间各村不同，多在农历正月到二月；看年例请跟着本地人走，别挡队伍。</view>
+</view>

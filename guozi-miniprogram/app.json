@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/goods/goods",
+    "pages/spots/spots",
+    "pages/culture/culture",
+    "pages/me/me",
+    "pages/atlas/atlas",
+    "pages/map/map",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/comment-demo/comment-demo"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#c0304a",
+    "navigationBarTitleText": "果子几时熟",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fbf6ee"
+  },
+  "tabBar": {
+    "color": "#8b8078",
+    "selectedColor": "#c0304a",
+    "backgroundColor": "#fffdf8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "text": "好物"
+      },
+      {
+        "pagePath": "pages/spots/spots",
+        "text": "游玩"
+      },
+      {
+        "pagePath": "pages/culture/culture",
+        "text": "人文"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "renderer": "webview",
+  "lazyCodeLoading": "requiredComponents",
+  "cloud": true
+}

@@ -1,0 +1,26 @@
+<!-- 评论模块测试页：只用来验证组件行为，不参与正式流程 -->
+<view class="demo">
+  <view class="demo-head">
+    <view class="demo-k">COMMENT TEST</view>
+    <view class="demo-t serif">评论模块测试页</view>
+    <view class="demo-s">contentId = {{contentId}}（可改输入框里的值切换不同内容的评论）</view>
+
+    <view class="demo-row">
+      <input class="demo-input" value="{{contentId}}" placeholder="contentId" bindinput="onContentIdInput" />
+      <button class="demo-btn" size="mini" bindtap="reload">重新加载</button>
+    </view>
+
+    <view class="demo-row">
+      <text class="demo-label">管理员视图</text>
+      <switch checked="{{isAdmin}}" bindchange="onAdminChange" color="#b3261e" />
+      <text class="demo-hint">仅影响前端按钮显隐，真正鉴权在云函数</text>
+    </view>
+  </view>
+
+  <comment-section
+    id="cmt"
+    content-id="{{contentId}}"
+    page-size="{{10}}"
+    is-admin="{{isAdmin}}"
+  />
+</view>

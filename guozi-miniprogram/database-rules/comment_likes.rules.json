@@ -1,0 +1,5 @@
+{
+  "_说明": "comment_likes 集合：登录用户可读（前端需要判断“我点过没”），写操作禁止，点赞/取消点赞由 likeComment 云函数完成。建议在控制台给 commentId + openid 建唯一索引，双重防重复点赞。",
+  "read": "auth.openid != null",
+  "write": false
+}

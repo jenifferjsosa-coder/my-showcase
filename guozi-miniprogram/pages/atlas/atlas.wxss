@@ -1,0 +1,25 @@
+page { background: #fbf6ee; }
+.head { padding: 36rpx 32rpx 18rpx; }
+.h1 { font-size: 54rpx; margin-top: 6rpx; }
+.hsub { font-size: 24rpx; color: #514741; line-height: 1.75; margin-top: 12rpx; }
+
+.nav { white-space: nowrap; padding: 8rpx 0 14rpx; }
+.nav-in { display: flex; padding: 0 24rpx; }
+.nchip { flex: 0 0 auto; margin-right: 14rpx; padding: 12rpx 26rpx; border-radius: 999rpx; background: #fffdf8; font-size: 23rpx; color: #514741; border: 1rpx solid rgba(29, 25, 23, .08); }
+.nchip.on { background: #c0304a; color: #fff; border-color: #c0304a; }
+
+.grp { padding-top: 30rpx; }
+.g-kicker { font-size: 19rpx; letter-spacing: 4rpx; color: #c0304a; }
+.g-h { display: flex; align-items: baseline; margin-top: 4rpx; }
+.g-name { font-size: 46rpx; letter-spacing: 2rpx; }
+.g-unit { font-size: 22rpx; color: #8b8078; margin-left: 14rpx; }
+.g-sub { font-size: 23rpx; color: #514741; line-height: 1.7; margin: 10rpx 0 18rpx; }
+
+.k { display: flex; padding: 20rpx 0; border-bottom: 1rpx dashed rgba(29, 25, 23, .12); }
+.k:last-child { border-bottom: 0; }
+.kid { width: 46rpx; height: 46rpx; border-radius: 50%; background: #f3e7e2; color: #c0304a; font-size: 22rpx; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; margin-top: 4rpx; }
+.kb { flex: 1; padding-left: 18rpx; }
+.kn { display: flex; align-items: center; flex-wrap: wrap; }
+.kname { font-size: 30rpx; }
+.kt { font-size: 20rpx; color: #0f6771; background: rgba(15, 103, 113, .1); padding: 3rpx 12rpx; border-radius: 8rpx; margin-left: 12rpx; }
+.kd { font-size: 23rpx; color: #514741; line-height: 1.65; margin-top: 6rpx; }

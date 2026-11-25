@@ -1,0 +1,5 @@
+{
+  "_说明": "comments 集合：所有人可读“已通过审核”的评论，或读到自己的评论（含未过审）；写操作一律禁止，只能走云函数（云函数是管理员权限，不受此规则限制）。在云开发控制台 → 数据库 → comments → 权限设置 → 自定义安全规则，粘贴 read / write 两段。",
+  "read": "doc.isPass == true || doc.openid == auth.openid",
+  "write": false
+}
