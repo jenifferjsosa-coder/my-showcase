@@ -13,7 +13,7 @@
 
   <view class="list">
     <view class="row card" wx:for="{{list}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
-      <image class="row-img" src="{{item.img}}" mode="aspectFill"></image>
+      <image lazy-load="{{true}}" class="row-img" src="{{item.img}}" mode="aspectFill"></image>
       <view class="row-b">
         <view class="row-n">{{item.name}}<text class="tag sm">{{item.tag}}</text></view>
         <view class="row-a">{{item.area}}</view>

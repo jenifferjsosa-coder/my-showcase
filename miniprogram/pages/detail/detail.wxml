@@ -2,7 +2,7 @@
   <swiper class="cover" indicator-dots="{{it.imgCount > 1}}" indicator-color="rgba(255,255,255,.45)"
           indicator-active-color="#ffffff" circular autoplay="{{false}}" bindchange="onSwipe">
     <swiper-item wx:for="{{it.imgs}}" wx:key="*this">
-      <image class="cover-img" src="{{item}}" mode="aspectFill" bindtap="preview" data-i="{{index}}"></image>
+      <image lazy-load="{{true}}" class="cover-img" src="{{item}}" mode="aspectFill" bindtap="preview" data-i="{{index}}"></image>
     </swiper-item>
   </swiper>
   <view class="swipe-hint" wx:if="{{it.imgCount > 1}}">{{cur + 1}} / {{it.imgCount}} · 左右滑动看更多</view>

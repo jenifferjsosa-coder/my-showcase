@@ -39,7 +39,7 @@
 
     <view class="res">
       <view class="row" wx:for="{{list}}" wx:key="name" data-i="{{index}}" bindtap="tapRow">
-        <image class="rimg" wx:if="{{item.img}}" src="{{item.img}}" mode="aspectFill"></image>
+        <image lazy-load="{{true}}" class="rimg" wx:if="{{item.img}}" src="{{item.img}}" mode="aspectFill"></image>
         <view class="rglyph" wx:else>{{item.glyph}}</view>
         <view class="rb">
           <view class="rn">{{item.name}}<text class="rk">{{item.kind}}</text></view>

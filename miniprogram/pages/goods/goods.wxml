@@ -13,7 +13,7 @@
 
   <view class="grid">
     <view class="gcard card" wx:for="{{list}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
-      <image class="g-img" src="{{item.img}}" mode="aspectFill"></image>
+      <image lazy-load="{{true}}" class="g-img" src="{{item.img}}" mode="aspectFill"></image>
       <view class="g-b">
         <view class="g-n">{{item.name}}</view>
         <view class="g-a">{{item.area}}</view>

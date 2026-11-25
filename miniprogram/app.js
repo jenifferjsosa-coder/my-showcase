@@ -16,10 +16,15 @@ App({
     // 环境 ID：微信开发者工具 → 云开发 → 设置 → 环境 ID
     // 换环境时只改这一处；不写 env 会默认用“当前环境”
     if (wx.cloud) {
-      wx.cloud.init({
-        env: 'cloud1-d2gz0v75xf4962e09',
-        traceUser: true
-      });
+      try {
+        wx.cloud.init({
+          env: 'cloud1-d2gz0v75xf4962e09',
+          traceUser: true
+        });
+      } catch (e) {
+        // 云开发没配好也不能让整个小程序起不来
+        console.warn('[app] 云开发初始化失败：', e && e.errMsg);
+      }
     } else {
       console.warn('[app] 当前基础库不支持云开发，请把基础库调到 2.2.3 以上');
     }

@@ -1,7 +1,7 @@
 <view class="page">
   <!-- 封面 -->
   <view class="hero">
-    <image class="hero-img" src="{{hero}}" mode="aspectFill"></image>
+    <image lazy-load="{{true}}" class="hero-img" src="{{hero}}" mode="aspectFill"></image>
     <view class="hero-mask"></view>
     <view class="hero-top">
       <text class="brand">广东 · 茂名</text>
@@ -66,7 +66,7 @@
   </view>
   <view class="pad">
     <view class="today" bindtap="openItem" data-id="{{today.id}}">
-      <image class="today-img" src="{{today.big}}" mode="aspectFill"></image>
+      <image lazy-load="{{true}}" class="today-img" src="{{today.big}}" mode="aspectFill"></image>
       <view class="today-mask"></view>
       <view class="today-in">
         <text class="today-k">{{today.area}}</text>
@@ -107,7 +107,7 @@
   </view>
   <scroll-view class="hscroll pad" scroll-x="true" enable-flex="true">
     <view class="hitem card" wx:for="{{spots}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
-      <image class="sp-img" src="{{item.img}}" mode="aspectFill"></image>
+      <image lazy-load="{{true}}" class="sp-img" src="{{item.img}}" mode="aspectFill"></image>
       <view class="sp-b">
         <view class="sp-n">{{item.name}}</view>
         <view class="sp-a">{{item.area}} · {{item.tag}}</view>
@@ -124,7 +124,7 @@
   </view>
   <scroll-view class="hscroll pad" scroll-x="true" enable-flex="true">
     <view class="hitem food" wx:for="{{foods}}" wx:key="id" bindtap="openItem" data-id="{{item.id}}">
-      <image class="fd-img" src="{{item.img}}" mode="aspectFill"></image>
+      <image lazy-load="{{true}}" class="fd-img" src="{{item.img}}" mode="aspectFill"></image>
       <view class="fd-n">{{item.name}}</view>
       <view class="fd-a">{{item.area}}</view>
     </view>
@@ -158,7 +158,7 @@
   </view>
   <view class="pad">
     <view class="mapcard" bindtap="goMap">
-      <image class="mapimg" src="{{mapImg}}" mode="widthFix"></image>
+      <image lazy-load="{{true}}" class="mapimg" src="{{mapImg}}" mode="widthFix"></image>
       <view class="mapcap">
         <view class="mapcap-t">地图上的茂名</view>
         <view class="mapcap-s">五个区市 · 32 个景点 · 鉴江与礞石</view>

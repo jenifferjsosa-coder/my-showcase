@@ -7,7 +7,7 @@
 
   <view class="pad" wx:for="{{maps}}" wx:key="key">
     <view class="mcard" bindtap="preview" data-i="{{index}}">
-      <image class="mimg" src="{{item.img}}" mode="widthFix"></image>
+      <image lazy-load="{{true}}" class="mimg" src="{{item.img}}" mode="widthFix"></image>
       <view class="mcap">
         <view class="mt">{{item.t}}</view>
         <view class="ms">{{item.s}}</view>

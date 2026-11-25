@@ -50,3 +50,6 @@ view, text, image, scroll-view, button, input { box-sizing: border-box; }
 .tag.sm { margin-left: 10rpx; }
 .mt8 { margin-top: 8rpx; }
 .mt16 { margin-top: 16rpx; }
+
+/* 图片未加载时的底色，避免白闪 */
+image { background-color: #efe6da; }
