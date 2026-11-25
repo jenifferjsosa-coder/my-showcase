@@ -1,5 +1,5 @@
 {
-  "description": "haoxin maoming mini program",
+  "description": "茂名物产与去处 · 小程序",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -16,7 +16,7 @@
   "compileType": "miniprogram",
   "libVersion": "3.5.5",
   "appid": "wx1351b1df4ade28f9",
-  "projectname": "haoxin-maoming",
+  "projectname": "果子几时熟",
   "condition": {},
   "cloudfunctionRoot": "cloudfunctions/"
 }

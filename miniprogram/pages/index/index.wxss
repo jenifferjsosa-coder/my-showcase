@@ -109,3 +109,15 @@
 .mapcap { padding: 20rpx 24rpx 24rpx; }
 .mapcap-t { font-size: 30rpx; color: #1d1917; font-family: "Songti SC", serif; }
 .mapcap-s { font-size: 21rpx; color: #8b8078; margin-top: 6rpx; }
+/* 山与海 入口条 */
+.geo-band { background: linear-gradient(135deg, #f4efe6, #eef3f4); border-radius: 26rpx; padding: 26rpx 26rpx 22rpx; box-shadow: 0 6rpx 22rpx rgba(29, 25, 23, .05); }
+.gb-h { display: flex; align-items: baseline; }
+.gb-k { font-size: 18rpx; letter-spacing: 3rpx; color: #a08d76; }
+.gb-t { font-size: 34rpx; color: #1d1917; margin-left: 12rpx; }
+.gb-row { display: flex; margin: 16rpx 0 12rpx; }
+.gb-i { flex: 1; display: flex; align-items: baseline; flex-wrap: wrap; }
+.gb-v { font-size: 34rpx; color: #b3261e; font-family: "Songti SC", serif; }
+.gb-u { font-size: 18rpx; color: #8b8078; margin-left: 4rpx; }
+.gb-l { width: 100%; font-size: 19rpx; color: #8b8078; margin-top: 2rpx; }
+.gb-d { font-size: 22rpx; color: #5b524c; line-height: 1.7; }
+.gb-more { margin-top: 10rpx; font-size: 22rpx; color: #2f6f7a; text-align: right; }

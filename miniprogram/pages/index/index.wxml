@@ -29,6 +29,23 @@
     </view>
   </view>
 
+  <!-- 山与海 -->
+  <view class="pad">
+    <view class="geo-band" bindtap="goMap">
+      <view class="gb-h">
+        <text class="gb-k">LAND &amp; SEA</text>
+        <text class="gb-t serif">山与海</text>
+      </view>
+      <view class="gb-row">
+        <view class="gb-i"><text class="gb-v">1704</text><text class="gb-u">米</text><text class="gb-l">大田顶</text></view>
+        <view class="gb-i"><text class="gb-v">232</text><text class="gb-u">公里</text><text class="gb-l">鉴江</text></view>
+        <view class="gb-i"><text class="gb-v">182</text><text class="gb-u">公里</text><text class="gb-l">海岸线</text></view>
+      </view>
+      <view class="gb-d">北边云开大山，中间鉴江穿城入海，南边是南海。山、江、海三层，凑成了荔枝、橘红与海味。</view>
+      <view class="gb-more">看地图 ›</view>
+    </view>
+  </view>
+
   <!-- 产业矩阵 -->
   <view class="pad">
     <view class="industry">

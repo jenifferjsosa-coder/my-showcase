@@ -1,5 +1,6 @@
 const BASE = 'https://jenifferjsosa-coder.github.io/my-showcase/';
 const data = require('./data.js');
+const EXTRA = require('./extra-imgs.js');
 
 function img(path, small) {
   if (!path) return '';
@@ -57,9 +58,11 @@ function viewOf(item) {
   const stats = (item.stats || []).map(function (s) {
     return { n: s[0], u: s[1], l: s[2] };
   });
-  const list = (item.imgs && item.imgs.length ? item.imgs : [item.img]).map(function (p) {
-    return base(p);
+  const mains = (item.imgs && item.imgs.length ? item.imgs : [item.img]).slice();
+  (EXTRA[item.id] || []).forEach(function (p) {
+    if (mains.indexOf(p) < 0) mains.push(p);
   });
+  const list = mains.map(function (p) { return base(p); });
   return {
     id: item.id,
     name: item.name,
